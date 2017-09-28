@@ -1,0 +1,29 @@
+{
+  "name": "tutorial-app",
+  "version": "1.0.0",
+  "description": "Postapp fullstack application",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/bbalint/PostApp_Temalab.git"
+  },
+  "keywords": [
+    "mean"
+  ],
+  "author": "Balint",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/bbalint/PostApp_Temalab/issues"
+  },
+  "homepage": "https://gitlab.com/bbalint/PostApp_Temalab/#readme",
+  "dependencies": {
+    "express": "^4.15.5"
+  },
+  "devDependencies": {
+    "mocha": "^3.5.3"
+  }
+}
