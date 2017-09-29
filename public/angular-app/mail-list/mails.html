@@ -1,8 +1,13 @@
 <h1>{{ vm.title }}</h1>
-<table border="1">
-    <tr ng-repeat="mail in vm.mails">
-        <td>{{mail.email.from}}</td>
-        <td>{{mail.email.subject}}</td>
-        <td>{{mail.email.to}}</td>
-    </tr>
-</table>
+<div class="container">
+        <table class="table table-bordered table-hover">
+            <th>From</th>
+            <th>Subject</th>
+            <th>To</th>
+            <tr ng-repeat="mail in vm.mails">
+                <td>{{mail.email.from}}</td>
+                <td>{{mail.email.subject}}</td>
+                <td>{{mail.email.to}}</td>
+            </tr>
+        </table>
+</div>
