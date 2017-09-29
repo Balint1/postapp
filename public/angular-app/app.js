@@ -1,17 +1,16 @@
 angular.module('postapp', ['ngRoute'])
-.config(config)
-.controller('HomeController', HomeController);
+.config(config);
 
 function config($routeProvider){
     $routeProvider
         .when('/', {
-            templateUrl: 'angular-app/home.html',
+            templateUrl: 'angular-app/home/home.html',
             controller: HomeController,
             controllerAs: 'vm'
+        })
+        .when('/mails', {
+            templateUrl: 'angular-app/mail-list/mails.html',
+            controller: MailsController,
+            controllerAs: 'vm'
         });
-}
-
-function HomeController () {
-    var vm = this;
-    vm.title = 'PostApp';
 }
