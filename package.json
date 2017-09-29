@@ -21,6 +21,8 @@
   },
   "homepage": "https://gitlab.com/bbalint/PostApp_Temalab/#readme",
   "dependencies": {
+    "angular": "^1.6.6",
+    "angular-route": "^1.6.6",
     "express": "^4.15.5"
   },
   "devDependencies": {
