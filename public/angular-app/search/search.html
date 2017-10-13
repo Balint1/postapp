@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="jumbotron jumbocontainer">
+        <h1 id="searchtext">Search</h1>
+        <form action="" method="post">
+            <div class="searchrowdiv">
+                <label for="after_date">Arrived after: </label>
+                <input id="after_date" type="date">
+                <label for="admin">Administrator: </label>
+                <select name="administrators" id="admin">
+                    <option value="jani">Jani</option>
+                    <option value="kati">Kati</option>
+                    <option value="elek">Elek</option>
+                </select>
+            </div>
+            <div class="searchrowdiv">
+                <label for="before_date">Filing before: </label>
+                <input id="before_date" type="date">
+                <label for="status">Status: </label>
+                <select name="status" id="status">
+                    <option value="waiting">Waiting for filing</option>
+                    <option value="completed">Filing completed</option>
+                </select>
+            </div>
+            <div class="searchrowdiv">
+                <label for="division">Division: </label>
+                <select name="division" id="division">
+                    <option value="a">Division A</option>
+                    <option value="b">Division B</option>
+                    <option value="c">Division C</option>
+                </select>
+            </div>
+            <div class="searchrowdiv searchbuttondiv">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </form>
+        <div class="newmaildiv">
+            <form action="#!/newmail">
+                <button type="submit" class="btn btn-success">Add new mail</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -38,3 +38,96 @@ hr {
 	border-top: 1px solid #f8f8f8;
 	border-bottom: 1px solid rgba(0,0,0,0.2);
 }
+
+#searchtext, #newmailtext {
+	color: darkslategrey;
+    text-align: left;
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: .5rem;
+    margin-top: 0;
+    padding-bottom: 30px;
+    font-weight: bold;
+}
+
+.jumbotron.jumbocontainer {
+    padding-left: 20px;
+    padding-top: 30px;
+    width: 60%;
+    margin: auto;
+    padding-bottom: 15px;
+    margin-top: 50px;
+}
+
+label {
+	color: darkslategrey;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+input {
+    color: black;
+    margin-right: 20px;
+}
+
+select {
+    color: black;
+}
+
+#admin {
+    width: 150px;
+}
+
+#before_date {
+    width: 150px;
+    margin-right: 70px;
+}
+
+.searchrowdiv {
+    margin-bottom: 20px;
+}
+
+#after_date, #arrive_date {
+    width: 150px;
+}
+
+label[for=before_date] {
+    color: darkslategrey;
+    margin-left: 20px;
+    margin-right: 13px;
+}
+
+#status {
+    width: 150px;
+}
+
+.fa-sign-in {
+    font-size: 16px;
+    padding-right: 5px;
+}
+
+#division {
+    width: 150px;
+}
+
+label[for=division] {
+    margin-left: 350px;
+}
+
+.searchbuttondiv {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.newmaildiv {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+label[for=arrive_date] {
+    margin-right: 20px;
+}
+
+#savebutton {
+    margin-right: 30px;
+}

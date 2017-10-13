@@ -9,8 +9,11 @@ function config($routeProvider){
             controllerAs: 'vm'
         })
         .when('/mails', {
-            templateUrl: 'angular-app/mail-list/mails.html',
+            templateUrl: 'angular-app/search/search.html',
             controller: MailsController,
             controllerAs: 'vm'
+        })
+        .when('/newmail', {
+            templateUrl: 'angular-app/new-mail/new-mail.html',
         });
 }
