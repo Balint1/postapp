@@ -60,7 +60,7 @@ hr {
 }
 
 label {
-	color: darkslategrey;
+    color: darkslategrey;
     margin-left: 20px;
     margin-right: 10px;
 }
@@ -130,4 +130,23 @@ label[for=arrive_date] {
 
 #savebutton {
     margin-right: 30px;
+}
+
+.jumbotron.accountform {
+    padding-left: 20px;
+    padding-top: 30px;
+    width: 40%;
+    margin: auto;
+    padding-bottom: 15px;
+    margin-top: 120px;
+}
+
+label[for=username], label[for=password] {
+    margin-left: 0px;
+    margin-bottom: 10px;
+}
+
+input[type=text], input[type=password] {
+    margin-bottom: 10px;
+    width: 70%;
 }

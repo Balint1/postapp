@@ -14,6 +14,12 @@ function config($routeProvider){
             controllerAs: 'vm'
         })
         .when('/newmail', {
-            templateUrl: 'angular-app/new-mail/new-mail.html',
+            templateUrl: 'angular-app/new-mail/new-mail.html'
+        })
+        .when('/login', {
+            templateUrl: 'angular-app/login/login.html'
+        })
+        .when('/signup', {
+            templateUrl: 'angular-app/signup/signup.html'
         });
 }
