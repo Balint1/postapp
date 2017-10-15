@@ -1,25 +1,45 @@
-angular.module('postapp', ['ngRoute'])
-.config(config);
+(function () {
+    'use strict';
 
-function config($routeProvider){
-    $routeProvider
-        .when('/', {
-            templateUrl: 'angular-app/home/home.html',
-            controller: HomeController,
-            controllerAs: 'vm'
-        })
-        .when('/mails', {
-            templateUrl: 'angular-app/search/search.html',
-            controller: MailsController,
-            controllerAs: 'vm'
-        })
-        .when('/newmail', {
-            templateUrl: 'angular-app/new-mail/new-mail.html'
-        })
-        .when('/login', {
-            templateUrl: 'angular-app/login/login.html'
-        })
-        .when('/signup', {
-            templateUrl: 'angular-app/signup/signup.html'
-        });
-}
+    angular.module('postapp', ['ui.router', 'ngAnimate'])
+        .config(config);
+
+    function config($stateProvider, $urlRouterProvider){
+
+        $urlRouterProvider.otherwise("/");
+
+        $stateProvider
+            .state('homepage', {
+                url: '/',
+                templateUrl: 'angular-app/home/home.html',
+                controller: HomeController,
+                controllerAs: 'vm'
+            })
+            .state('searchpage', {
+                url: '/mails',
+                templateUrl: 'angular-app/search/search.html',
+                controller: MailsController,
+                controllerAs: 'vm'
+            })
+            .state('newmailpage', {
+                url: '/newmail',
+                templateUrl: 'angular-app/new-mail/new-mail.html',
+            })
+            .state('loginpage', {
+                url: '/login',
+                templateUrl: 'angular-app/login/login.html',
+            })
+            .state('signuppage', {
+                url: '/signup',
+                templateUrl: 'angular-app/signup/signup.html',
+            });
+
+        function run($rootScope) {
+            // track current state for active tab
+            $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+                $rootScope.currentState = toState.name;
+            });
+        }
+    }
+})();
+
