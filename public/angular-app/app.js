@@ -1,45 +1,33 @@
-(function () {
-    'use strict';
+angular.module('postapp', ['ngRoute', 'ngAnimate'])
+    .config(config);
 
-    angular.module('postapp', ['ui.router', 'ngAnimate'])
-        .config(config);
+function config($routeProvider) {
 
-    function config($stateProvider, $urlRouterProvider){
-
-        $urlRouterProvider.otherwise("/");
-
-        $stateProvider
-            .state('homepage', {
-                url: '/',
-                templateUrl: 'angular-app/home/home.html',
-                controller: HomeController,
-                controllerAs: 'vm'
-            })
-            .state('searchpage', {
-                url: '/mails',
-                templateUrl: 'angular-app/search/search.html',
-                controller: MailsController,
-                controllerAs: 'vm'
-            })
-            .state('newmailpage', {
-                url: '/newmail',
-                templateUrl: 'angular-app/new-mail/new-mail.html',
-            })
-            .state('loginpage', {
-                url: '/login',
-                templateUrl: 'angular-app/login/login.html',
-            })
-            .state('signuppage', {
-                url: '/signup',
-                templateUrl: 'angular-app/signup/signup.html',
-            });
-
-        function run($rootScope) {
-            // track current state for active tab
-            $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
-                $rootScope.currentState = toState.name;
-            });
-        }
-    }
-})();
+    $routeProvider
+        .when('/', {
+            templateUrl: 'angular-app/home/home.html',
+            controller: HomeController,
+            controllerAs: 'vm'
+        })
+        .when('/mails', {
+            templateUrl: 'angular-app/search/search.html',
+            controller: SearchController,
+            controllerAs: 'vm'
+        })
+        .when('/newmail', {
+            templateUrl: 'angular-app/new-mail/new-mail.html',
+            controller: NewMailController,
+            controllerAs: 'vm'
+        })
+        .when('/login', {
+            templateUrl: 'angular-app/login/login.html',
+            controller: LoginController,
+            controllerAs: 'vm'
+        })
+        .when('/signup', {
+            templateUrl: 'angular-app/signup/signup.html',
+            controller: SignupController,
+            controllerAs: 'vm'
+        });
+}
 
