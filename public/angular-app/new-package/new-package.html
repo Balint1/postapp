@@ -1,0 +1,97 @@
+<div class="container">
+    <div class="jumbotron jumbocontainer">
+        <h1 id="searchtext">Add new package</h1>
+        <form ng-submit="addPackage()">
+            <div class="searchrowdiv">
+                <label for="new_package_type">Type: </label>
+                <select name="new_package_type" id="new_package_type" ng-model="new_package_type">
+                    <option disabled selected value hidden></option>
+                    <option value="mail">Mail</option>
+                    <option value="packet">Packet</option>
+                    <option value="gazette">Gazette</option>
+                    <option value="invoice">Invoice</option>
+                </select>
+                <label for="time">Time (date): </label>
+                <input id="time" type="date">
+            </div>
+            <div class="searchrowdiv">
+                <label for="sender">Sender: </label>
+                <input type="text" id="sender">
+                <label for="subject">Subject: </label>
+                <input type="text" id="subject">
+            </div>
+            <div class="searchrowdiv">
+                <label for="address">Address: </label>
+                <input type="text" id="address" placeholder="Address">
+                <input type="text" id="city" placeholder="City">
+                <input type="number" id="zip" placeholder="Zip">
+            </div>
+            <div class="searchrowdiv">
+                <label for="division">Division: </label>
+                <select name="division" id="division">
+                    <option value="null"></option>
+                    <option value="A">Division A</option>
+                    <option value="B">Division B</option>
+                    <option value="C">Division C</option>
+                </select>
+                <label for="admin">Admin:  </label>
+                <select name="admin" id="admin">
+                    <option value="null"></option>
+                    <option value="juli">Juli</option>
+                    <option value="kati">Kati</option>
+                    <option value="jani">Jani</option>
+                </select>
+            </div>
+            <div class="searchrowdiv">
+                <label for="comment">Comment: </label>
+                <input type="text" id="comment">
+            </div>
+            <div ng-show="new_package_type == 'mail' || new_package_type == 'packet' || new_package_type == 'gazette'" class="fading">
+                <div class="searchrowdiv">
+                    <label for="category">Category: </label>
+                    <input type="text" id="category">
+                    <label for="delivery">Delivery:  </label>
+                    <select name="delivery" id="delivery">
+                        <option disabled selected value hidden></option>
+                        <option value="normal">Normal</option>
+                        <option value="express">Express</option>
+                    </select>
+                </div>
+                <div class="searchrowdiv">
+                    <label for="count">Count: </label>
+                    <input type="number" id="count">
+                    <label for="weight">Weight (gramm): </label>
+                    <input type="number" id="weight">
+                    <label for="value">Value (Ft): </label>
+                    <input type="number" id="value">
+                </div>
+                <div class="searchrowdiv">
+                    <label for="weight_price">Weight price (Ft): </label>
+                    <input type="number" id="weight_price">
+                    <label for="extra_price">Extra price (Ft): </label>
+                    <input type="number" id="extra_price">
+                </div>
+                <div class="searchrowdiv searchbuttondiv">
+                    <button type="submit" class="btn btn-primary">Add package</button>
+                </div>
+            </div>
+            <div ng-show="new_package_type == 'invoice'" class="fading">
+                <div class="searchrowdiv">
+                    <label for="invoice_number">Invoice# : </label>
+                    <input type="text" id="invoice_number">
+                    <label for="expiry">Expiry: </label>
+                    <input type="number" id="expiry">
+                </div>
+                <div class="searchrowdiv">
+                    <label for="brutto">Brutto : </label>
+                    <input type="number" id="brutto">
+                    <label for="netto">Netto: </label>
+                    <input type="number" id="netto">
+                </div>
+                <div class="searchrowdiv searchbuttondiv">
+                    <button type="submit" class="btn btn-primary">Add package</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

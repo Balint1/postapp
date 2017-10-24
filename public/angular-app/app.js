@@ -9,24 +9,19 @@ function config($routeProvider) {
             controller: HomeController,
             controllerAs: 'vm'
         })
-        .when('/mails', {
+        .when('/search', {
             templateUrl: 'angular-app/search/search.html',
             controller: SearchController,
             controllerAs: 'vm'
         })
         .when('/newmail', {
-            templateUrl: 'angular-app/new-mail/new-mail.html',
-            controller: NewMailController,
+            templateUrl: 'angular-app/new-package/new-package.html',
+            controller: NewPackageController,
             controllerAs: 'vm'
         })
         .when('/login', {
             templateUrl: 'angular-app/login/login.html',
             controller: LoginController,
-            controllerAs: 'vm'
-        })
-        .when('/signup', {
-            templateUrl: 'angular-app/signup/signup.html',
-            controller: SignupController,
             controllerAs: 'vm'
         });
 }

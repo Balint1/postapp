@@ -1,33 +1,56 @@
 <div class="container">
     <div class="jumbotron jumbocontainer">
         <h1 id="searchtext">Search</h1>
-        <form action="" method="post">
+        <form ng-submit="searchPackages()">
             <div class="searchrowdiv">
-                <label for="after_date">Arrived after: </label>
-                <input id="after_date" type="date">
-                <label for="admin">Administrator: </label>
-                <select name="administrators" id="admin">
-                    <option value="jani">Jani</option>
-                    <option value="kati">Kati</option>
-                    <option value="elek">Elek</option>
+                <label for="package_id">Package ID: </label>
+                <input id="package_id" type="number">
+                <label for="package_type">Type: </label>
+                <select name="package_type" id="package_type">
+                    <option value="null"></option>
+                    <option value="mail">Mail</option>
+                    <option value="invoice">Invoice</option>
+                    <option value="packet">Packet</option>
+                    <option value="gazette">Gazette</option>
                 </select>
             </div>
             <div class="searchrowdiv">
-                <label for="before_date">Filing before: </label>
-                <input id="before_date" type="date">
-                <label for="status">Status: </label>
-                <select name="status" id="status">
-                    <option value="waiting">Waiting for filing</option>
-                    <option value="completed">Filing completed</option>
-                </select>
+                <label for="from_date">From (date): </label>
+                <input id="from_date" type="date">
+                <label for="to_date">To (date): </label>
+                <input id="to_date" type="date">
+            </div>
+            <div class="searchrowdiv">
+                <label for="sender">Sender: </label>
+                <input type="text" id="sender">
+                <label for="subject">Subject: </label>
+                <input type="text" id="subject">
+            </div>
+            <div class="searchrowdiv">
+                <label for="address">Address: </label>
+                <input type="text" id="address" placeholder="Address">
+                <input type="text" id="city" placeholder="City">
+                <input type="number" id="zip" placeholder="Zip">
             </div>
             <div class="searchrowdiv">
                 <label for="division">Division: </label>
                 <select name="division" id="division">
-                    <option value="a">Division A</option>
-                    <option value="b">Division B</option>
-                    <option value="c">Division C</option>
+                    <option value="null"></option>
+                    <option value="A">Division A</option>
+                    <option value="B">Division B</option>
+                    <option value="C">Division C</option>
                 </select>
+                <label for="admin">Admin:  </label>
+                <select name="admin" id="admin">
+                    <option value="null"></option>
+                    <option value="juli">Juli</option>
+                    <option value="kati">Kati</option>
+                    <option value="jani">Jani</option>
+                </select>
+            </div>
+            <div class="searchrowdiv">
+                <label for="comment">Comment: </label>
+                <input type="text" id="comment">
             </div>
             <div class="searchrowdiv searchbuttondiv">
                 <button type="submit" class="btn btn-primary">Search</button>

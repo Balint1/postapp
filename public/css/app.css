@@ -9,6 +9,10 @@ body {
     overflow-x:hidden;
 }
 
+form {
+    padding-left: 5%;
+}
+
 html {
 	height: 100%;
 }
@@ -68,20 +72,119 @@ label {
 
 input {
     color: black;
-    margin-right: 20px;
+    margin-right: 0;
+    height: 26px;
 }
 
 select {
     color: black;
+    height: 26px;
+}
+
+label[for=category] {
+    margin-right: 24px;
+}
+
+#category {
+    width: 150px;
+    margin-right: 29px;
+    margin-bottom: 0;
+}
+
+#weight {
+    width: 60px;
+}
+
+#weight_price {
+    width: 128px;
+}
+
+#extra_price {
+    width: 128px;
+}
+
+#delivery {
+    width: 150px;
+}
+
+label[for=new_package_type] {
+    margin-right: 50px;
+}
+
+#new_package_type {
+    width: 150px;
+    margin-right: 13px;
+}
+
+#time {
+    width: 150px;
+}
+
+#package_type {
+    width: 150px;
+}
+
+label[for=address] {
+    margin-right: 30px;
+}
+
+#address {
+    width: 150px;
+    margin-right: 10px;
+    margin-bottom: 0;
+}
+
+#city {
+    width: 150px;
+    margin-right: 10px;
+    margin-bottom: 0;
+}
+
+#zip {
+    width: 98px;
 }
 
 #admin {
     width: 150px;
 }
 
-#before_date {
+label[for=admin] {
+    margin-right: 23px;
+}
+
+label[for=comment] {
+    margin-right: 20px;
+}
+
+#comment {
+    width: 74%;
+    margin-bottom: 0;
+}
+
+#division {
     width: 150px;
-    margin-right: 70px;
+    margin-right: 30px;
+}
+
+label[for=division] {
+    margin-right: 30px;
+}
+
+#from_date {
+    width: 150px;
+    margin-right: 30px;
+}
+
+#to_date {
+    width: 150px;
+}
+
+label[for=package_type] {
+    margin-right: 34px;
+}
+
+label[for=package_id] {
+    margin-right: 11px;
 }
 
 .searchrowdiv {
@@ -98,8 +201,21 @@ label[for=before_date] {
     margin-right: 13px;
 }
 
-#status {
+#package_id {
     width: 150px;
+    margin-right: 30px;
+}
+
+label[for=count] {
+    margin-right: 44px;
+}
+
+#count {
+    width: 50px;
+}
+
+#value {
+    width: 70px;
 }
 
 .fa-sign-in {
@@ -107,12 +223,23 @@ label[for=before_date] {
     padding-right: 5px;
 }
 
-#division {
+#sender {
     width: 150px;
+    margin-right: 30px;
+    margin-bottom: 0;
 }
 
-label[for=division] {
-    margin-left: 350px;
+label[for=sender] {
+    margin-right: 37px;
+}
+
+#subject {
+    width: 150px;
+    margin-bottom: 0;
+}
+
+label[for=subject] {
+    margin-right: 17px;
 }
 
 .searchbuttondiv {
@@ -152,10 +279,66 @@ input[type=text], input[type=password] {
     width: 70%;
 }
 
+label[for=invoice_number] {
+    margin-right: 25px;
+}
+
+#invoice_number {
+    width: 150px;
+    margin-right: 30px;
+    margin-bottom: 0;
+}
+
+label[for=expiry] {
+    margin-right: 25px;
+}
+
+#expiry {
+    width: 150px;
+}
+
+label[for=brutto] {
+    margin-right: 37px;
+}
+
+#brutto {
+    width: 150px;
+    margin-right: 30px;
+}
+
+label[for=netto] {
+    margin-right: 29px;
+}
+
+#netto {
+    width: 150px;
+}
+
 .page.ng-leave 	{ z-index:9999; }
 .page.ng-enter 	{ z-index:8888; }
 
-.page-home.ng-enter, .page-mail-edit.ng-enter, .page-login.ng-enter, .page-new-mail.ng-enter, .page-search.ng-enter, .page-signup.ng-enter 		{
+.page-home.ng-enter {
+    opacity: 0;
+    transition: 1s;
+}
+.page-home.ng-enter-active {
+    opacity: 1;
+}
+
+.fading.ng-hide {
+    opacity: 0;
+}
+
+.fading.ng-hide-remove,
+.fading.ng-hide-add {
+    display: block !important; /* or inline-block, as appropriate */
+}
+
+.fading.ng-hide-remove {
+    transition: all linear 1000ms;
+}
+
+.page-package-edit.ng-enter, .page-login.ng-enter, .page-new-package.ng-enter, .page-search.ng-enter 		{
     -webkit-animation:slideInRight 0.5s both ease-in;
     -moz-animation:slideInRight 0.5s both ease-in;
     animation:slideInRight 0.5s both ease-in;
