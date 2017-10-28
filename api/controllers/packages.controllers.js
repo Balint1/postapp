@@ -1,5 +1,6 @@
 var dbconn = require('../data/dbconnection.js'); 
-var PACKAGE_PROPERTIES = {_id : false,subject:true,time: true,adress:true,division:true,admin : true};
+var PACKAGE_PROPERTIES = {_id : false,subject:true,package_type : true , time: true,adress:true,division:true,admin : true, package_comment: true};
+var COLL = 'packages';
 module.exports.packagesGetAll = function(req,res){
     var offset = 0;
     var count = 50;
@@ -11,7 +12,7 @@ module.exports.packagesGetAll = function(req,res){
         count = parseInt(req.query.count,10);
     }
     var db = dbconn.get();
-    var collection = db.collection('packages');
+    var collection = db.collection(COLL);
     collection
         .find({},PACKAGE_PROPERTIES)
         .skip(offset)
