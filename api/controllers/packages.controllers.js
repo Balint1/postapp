@@ -1,10 +1,6 @@
 var dbconn = require('../data/dbconnection.js'); 
-var mailData = require('../data/mails.json');
-
-
-
-
-module.exports.mailsGetAll = function(req,res){
+var PACKAGE_PROPERTIES = {_id : false,subject:true,time: true,adress:true,division:true,admin : true};
+module.exports.packagesGetAll = function(req,res){
     var offset = 0;
     var count = 50;
 
@@ -16,9 +12,8 @@ module.exports.mailsGetAll = function(req,res){
     }
     var db = dbconn.get();
     var collection = db.collection('packages');
-    if(collection!= null)
     collection
-        .find({},{_id : false,packageId : true,time:true})
+        .find({},PACKAGE_PROPERTIES)
         .skip(offset)
         .limit(count)
         .toArray(function(err,docs){
@@ -27,14 +22,4 @@ module.exports.mailsGetAll = function(req,res){
             .status(200)
             .json(docs);
     });
-    //res
-    //.status(200)
-    //.json(mailData);
-};
-module.exports.mailsGetOne = function(req,res){
-    var mailId = req.params.mailId;
-    var thisMail = mailData[mailId];
-    res
-    .status(200)
-    .json(thisMail);
-};
+}
