@@ -6,7 +6,11 @@ var ctrlInvoices = require('../controllers/invoices.controllers.js')
 
 router
     .route('/packages')
-    .get(ctrlPackages.packagesGetAll);
+    .get(ctrlPackages.packagesGetAll)
+    .post(ctrlPackages.packagesGetAll);
+router
+    .route('/packagess')
+    .post(ctrlPackages.packagesPostSearch);
 router
     .route('/mails')
     .get(ctrlMails.mailsGetAll);
