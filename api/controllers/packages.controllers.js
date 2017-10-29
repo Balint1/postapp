@@ -24,8 +24,6 @@ module.exports.getPackages = function(req,res){
     var db = dbconn.get();
     var collection = db.collection(COLL);
 
-    console.log(req.body);
-
     var detailJSON = req.body;
     var fromDate = new Date(req.body.fromDate);
     var toDate = new Date(req.body.toDate);
@@ -33,7 +31,8 @@ module.exports.getPackages = function(req,res){
         res
         .status(400)
         .send("Rossz dátum formátum a toDate-nél");
-    if(detailJSON.fromDate && fromDate == "Invalid Date")
+    
+    else if(detailJSON.fromDate && fromDate == "Invalid Date")
         res
         .status(400)
         .send("Rossz dátum formátum a fromDate-nél");
@@ -63,8 +62,4 @@ module.exports.getPackages = function(req,res){
             .status(200)
             .json(docs);
     });
-}
-module.exports.packagesPostSearch = function(req,res){
-console.log(req.body);
-
 }
