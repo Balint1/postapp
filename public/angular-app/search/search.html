@@ -1,13 +1,13 @@
 <div class="container">
     <div class="jumbotron jumbocontainer">
         <h1 id="searchtext">Search</h1>
-        <form ng-submit="searchPackages()">
+        <form name="vm.searchForm" ng-submit="vm.searchPackages()">
             <div class="searchrowdiv">
                 <label for="package_id">Package ID: </label>
-                <input id="package_id" type="number">
+                <input id="package_id" type="number" ng-model="vm.package_id">
                 <label for="package_type">Type: </label>
-                <select name="package_type" id="package_type">
-                    <option value="null"></option>
+                <select name="package_type" id="package_type" ng-model="vm.package_type">
+                    <option value=""></option>
                     <option value="mail">Mail</option>
                     <option value="invoice">Invoice</option>
                     <option value="packet">Packet</option>
@@ -16,41 +16,39 @@
             </div>
             <div class="searchrowdiv">
                 <label for="from_date">From (date): </label>
-                <input id="from_date" type="date">
+                <input id="from_date" type="date" ng-model="vm.fromDate">
                 <label for="to_date">To (date): </label>
-                <input id="to_date" type="date">
+                <input id="to_date" type="date" ng-model="vm.toDate">
             </div>
             <div class="searchrowdiv">
                 <label for="sender">Sender: </label>
-                <input type="text" id="sender">
+                <input type="text" id="sender" ng-model="vm.sender">
                 <label for="subject">Subject: </label>
-                <input type="text" id="subject">
+                <input type="text" id="subject" ng-model="vm.subject">
             </div>
             <div class="searchrowdiv">
                 <label for="address">Address: </label>
-                <input type="text" id="address" placeholder="Address">
-                <input type="text" id="city" placeholder="City">
-                <input type="number" id="zip" placeholder="Zip">
+                <input type="text" id="address" placeholder="Address" ng-model="vm.adress">
+                <input type="text" id="city" placeholder="City" ng-model="vm.city">
+                <input type="number" id="zip" placeholder="Zip" ng-model="vm.zip">
             </div>
             <div class="searchrowdiv">
                 <label for="division">Division: </label>
-                <select name="division" id="division">
+                <select name="division" id="division" ng-model="vm.division">
                     <option value="null"></option>
                     <option value="A">Division A</option>
                     <option value="B">Division B</option>
                     <option value="C">Division C</option>
                 </select>
                 <label for="admin">Admin:  </label>
-                <select name="admin" id="admin">
-                    <option value="null"></option>
-                    <option value="juli">Juli</option>
-                    <option value="kati">Kati</option>
-                    <option value="jani">Jani</option>
+                <select name="admin" id="admin" ng-model="vm.admin">
+                    <option value=""></option>
+                    <option ng-repeat="admin in vm.admins" value="{{admin.name}}">{{admin.name}}</option>
                 </select>
             </div>
             <div class="searchrowdiv">
                 <label for="comment">Comment: </label>
-                <input type="text" id="comment">
+                <input type="text" id="comment" ng-model="vm.package_comment">
             </div>
             <div class="searchrowdiv searchbuttondiv">
                 <button type="submit" class="btn btn-primary">Search</button>
@@ -61,5 +59,27 @@
                 <button type="submit" class="btn btn-success">Add new mail</button>
             </form>
         </div>
+    </div>
+    <div class="container fading" ng-show="vm.searchResults.length > 0">
+        <table class="table table-bordered table-hover">
+            <th>Package ID</th>
+            <th>Package Type</th>
+            <th>Subject</th>
+            <th>Time</th>
+            <th>Address</th>
+            <th>Division</th>
+            <th>Admin</th>
+            <th>Comment</th>
+            <tr ng-repeat="result in vm.searchResults">
+                <td>{{result.packageId}}</td>
+                <td>{{result.package_type}}</td>
+                <td>{{result.subject}}</td>
+                <td>{{result.time | date}}</td>
+                <td>{{result.adress.zip + " " + result.adress.city + " " + result.adress.adress}}</td>
+                <td>{{result.division}}</td>
+                <td>{{result.admin.name}}</td>
+                <td>{{result.package_comment}}</td>
+            </tr>
+        </table>
     </div>
 </div>
