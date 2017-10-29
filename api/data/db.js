@@ -20,7 +20,7 @@ process.on('SIGINT',function(){
 });
 process.on('SIGTERM',function(){
     mongoose.connection.close(function(){
-        console.log("Mongoose disconnected through app termination (SIGINT)");
+        console.log("Mongoose disconnected through app termination (SIGTERM)");
         process.exit(0);
     });
 });
