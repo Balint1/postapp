@@ -6,6 +6,11 @@ body {
 	background-size: cover;
 	font-family: 'Lato', sans-serif;
 	color: white;
+    overflow-x:hidden;
+}
+
+form {
+    padding-left: 5%;
 }
 
 html {
@@ -37,4 +42,388 @@ hr {
 	width: 400px;
 	border-top: 1px solid #f8f8f8;
 	border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+#searchtext, #newmailtext {
+	color: darkslategrey;
+    text-align: left;
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: .5rem;
+    margin-top: 0;
+    padding-bottom: 30px;
+    font-weight: bold;
+}
+
+.jumbotron.jumbocontainer {
+    padding-left: 20px;
+    padding-top: 30px;
+    width: 60%;
+    margin: auto;
+    padding-bottom: 15px;
+    margin-top: 50px;
+}
+
+label {
+    color: darkslategrey;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+input {
+    color: black;
+    margin-right: 0;
+    height: 26px;
+}
+
+select {
+    color: black;
+    height: 26px;
+}
+
+label[for=category] {
+    margin-right: 24px;
+}
+
+#category {
+    width: 150px;
+    margin-right: 29px;
+    margin-bottom: 0;
+}
+
+#weight {
+    width: 60px;
+}
+
+#weight_price {
+    width: 128px;
+}
+
+#extra_price {
+    width: 128px;
+}
+
+#delivery {
+    width: 150px;
+}
+
+label[for=new_package_type] {
+    margin-right: 50px;
+}
+
+#new_package_type {
+    width: 150px;
+    margin-right: 13px;
+}
+
+#time {
+    width: 150px;
+}
+
+#package_type {
+    width: 150px;
+}
+
+label[for=address] {
+    margin-right: 30px;
+}
+
+#address {
+    width: 150px;
+    margin-right: 10px;
+    margin-bottom: 0;
+}
+
+#city {
+    width: 150px;
+    margin-right: 10px;
+    margin-bottom: 0;
+}
+
+#zip {
+    width: 98px;
+}
+
+#admin {
+    width: 150px;
+}
+
+label[for=admin] {
+    margin-right: 23px;
+}
+
+label[for=comment] {
+    margin-right: 20px;
+}
+
+#comment {
+    width: 74%;
+    margin-bottom: 0;
+}
+
+#division {
+    width: 150px;
+    margin-right: 30px;
+}
+
+label[for=division] {
+    margin-right: 30px;
+}
+
+#from_date {
+    width: 150px;
+    margin-right: 30px;
+}
+
+#to_date {
+    width: 150px;
+}
+
+label[for=package_type] {
+    margin-right: 34px;
+}
+
+label[for=package_id] {
+    margin-right: 11px;
+}
+
+.searchrowdiv {
+    margin-bottom: 20px;
+}
+
+#after_date, #arrive_date {
+    width: 150px;
+}
+
+label[for=before_date] {
+    color: darkslategrey;
+    margin-left: 20px;
+    margin-right: 13px;
+}
+
+#package_id {
+    width: 150px;
+    margin-right: 30px;
+}
+
+label[for=count] {
+    margin-right: 44px;
+}
+
+#count {
+    width: 50px;
+}
+
+#value {
+    width: 70px;
+}
+
+.fa-sign-in {
+    font-size: 16px;
+    padding-right: 5px;
+}
+
+#sender {
+    width: 150px;
+    margin-right: 30px;
+    margin-bottom: 0;
+}
+
+label[for=sender] {
+    margin-right: 37px;
+}
+
+#subject {
+    width: 150px;
+    margin-bottom: 0;
+}
+
+label[for=subject] {
+    margin-right: 17px;
+}
+
+.searchbuttondiv {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.newmaildiv {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+label[for=arrive_date] {
+    margin-right: 20px;
+}
+
+#savebutton {
+    margin-right: 30px;
+}
+
+.jumbotron.accountform {
+    padding-left: 20px;
+    padding-top: 30px;
+    width: 40%;
+    margin: auto;
+    padding-bottom: 15px;
+    margin-top: 120px;
+}
+
+label[for=username], label[for=password] {
+    margin-left: 0px;
+    margin-bottom: 10px;
+}
+
+input[type=text], input[type=password] {
+    margin-bottom: 10px;
+    width: 70%;
+}
+
+label[for=invoice_number] {
+    margin-right: 25px;
+}
+
+#invoice_number {
+    width: 150px;
+    margin-right: 30px;
+    margin-bottom: 0;
+}
+
+label[for=expiry] {
+    margin-right: 25px;
+}
+
+#expiry {
+    width: 150px;
+}
+
+label[for=brutto] {
+    margin-right: 37px;
+}
+
+#brutto {
+    width: 150px;
+    margin-right: 30px;
+}
+
+label[for=netto] {
+    margin-right: 29px;
+}
+
+#netto {
+    width: 150px;
+}
+
+.page.ng-leave 	{ z-index:9999; }
+.page.ng-enter 	{ z-index:8888; }
+
+.page-home.ng-enter {
+    opacity: 0;
+    transition: 1s;
+}
+.page-home.ng-enter-active {
+    opacity: 1;
+}
+
+.fading.ng-hide {
+    opacity: 0;
+}
+
+.fading.ng-hide-remove,
+.fading.ng-hide-add {
+    display: block !important; /* or inline-block, as appropriate */
+}
+
+.fading.ng-hide-remove {
+    transition: all linear 1000ms;
+}
+
+.page-package-edit.ng-enter, .page-login.ng-enter, .page-new-package.ng-enter, .page-search.ng-enter 		{
+    -webkit-animation:slideInRight 0.5s both ease-in;
+    -moz-animation:slideInRight 0.5s both ease-in;
+    animation:slideInRight 0.5s both ease-in;
+}
+
+/* rotate and fall */
+@-webkit-keyframes rotateFall {
+    0% { -webkit-transform: rotateZ(0deg); }
+    20% { -webkit-transform: rotateZ(10deg); -webkit-animation-timing-function: ease-out; }
+    40% { -webkit-transform: rotateZ(17deg); }
+    60% { -webkit-transform: rotateZ(16deg); }
+    100% { -webkit-transform: translateY(100%) rotateZ(17deg); }
+}
+@-moz-keyframes rotateFall {
+    0% { -moz-transform: rotateZ(0deg); }
+    20% { -moz-transform: rotateZ(10deg); -moz-animation-timing-function: ease-out; }
+    40% { -moz-transform: rotateZ(17deg); }
+    60% { -moz-transform: rotateZ(16deg); }
+    100% { -moz-transform: translateY(100%) rotateZ(17deg); }
+}
+@keyframes rotateFall {
+    0% { transform: rotateZ(0deg); }
+    20% { transform: rotateZ(10deg); animation-timing-function: ease-out; }
+    40% { transform: rotateZ(17deg); }
+    60% { transform: rotateZ(16deg); }
+    100% { transform: translateY(100%) rotateZ(17deg); }
+}
+
+/* scale up */
+@keyframes scaleUp {
+    from 		{ opacity: 0.3; transform: scale(0.8); }
+}
+@-moz-keyframes scaleUp {
+    from 		{ opacity: 0.3; -moz-transform: scale(0.8); }
+}
+@-webkit-keyframes scaleUp {
+    from 		{ opacity: 0.3; -webkit-transform: scale(0.8); }
+}
+
+/* slide in from the right */
+@keyframes slideInRight {
+    from 	{ transform:translateX(100%); }
+    to 		{ transform: translateX(0); }
+}
+@-moz-keyframes slideInRight {
+    from 	{ -moz-transform:translateX(100%); }
+    to 		{ -moz-transform: translateX(0); }
+}
+@-webkit-keyframes slideInRight {
+    from 	{ -webkit-transform:translateX(100%); }
+    to 		{ -webkit-transform: translateX(0); }
+}
+
+/* slide in from the bottom */
+@keyframes slideInUp {
+    from 	{ transform:translateY(100%); }
+    to 		{ transform: translateY(0); }
+}
+@-moz-keyframes slideInUp {
+    from 	{ -moz-transform:translateY(100%); }
+    to 		{ -moz-transform: translateY(0); }
+}
+@-webkit-keyframes slideInUp {
+    from 	{ -webkit-transform:translateY(100%); }
+    to 		{ -webkit-transform: translateY(0); }
+}
+
+/* slide in from the bottom */
+@keyframes slideOutLeft {
+    to 		{ transform: translateX(-100%); }
+}
+@-moz-keyframes slideOutLeft {
+    to 		{ -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes slideOutLeft {
+    to 		{ -webkit-transform: translateX(-100%); }
+}
+
+/* rotate out newspaper */
+@-webkit-keyframes rotateOutNewspaper {
+    to { -webkit-transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
+}
+@-moz-keyframes rotateOutNewspaper {
+    to { -moz-transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
+}
+@keyframes rotateOutNewspaper {
+    to { transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
 }
