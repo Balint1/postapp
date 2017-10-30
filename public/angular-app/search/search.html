@@ -55,13 +55,16 @@
             </div>
         </form>
         <div class="newmaildiv">
-            <form action="#/newmail">
+            <form action="#/newmail" style="display: inline-block;">
                 <button type="submit" class="btn btn-success">Add new mail</button>
+            </form>
+            <form ng-submit="vm.printTable()" style="display: inline-block;" ng-show="vm.searchResults.length > 0">
+                <button type="submit" class="btn btn-info">Print Table</button>
             </form>
         </div>
     </div>
     <div class="container fading" ng-show="vm.searchResults.length > 0">
-        <table class="table table-bordered table-hover">
+        <table class="table table-bordered table-hover" id="printable">
             <th>Package ID</th>
             <th>Package Type</th>
             <th>Subject</th>

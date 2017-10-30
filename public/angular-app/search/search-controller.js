@@ -62,4 +62,12 @@ function SearchController ($scope, packageDataFactory) {
         }
 
     }
+    
+    vm.printTable = function () {
+        var tableToPrint = document.getElementById("printable");
+        newWin = window.open("");
+        newWin.document.write(tableToPrint.outerHTML);
+        newWin.print();
+        newWin.close();
+    }
 }
