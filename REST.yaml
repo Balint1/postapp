@@ -1,0 +1,463 @@
+swagger: '2.0'
+info:
+  description: |
+    This is a simple server that provides information about the users, administrators and the incoming/outgoing mails of the PostApp company.
+  version: 1.0.0
+  title: PostApp
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: postapp@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+tags:
+- name: mail
+  description: Everything about the mails
+- name: administrator
+  description: Administrators working at PostApp
+- name: user
+  description: Operations about user
+# schemes:
+# - http
+paths:
+  /mails:
+    post:
+      tags:
+      - mail
+      summary: Add a new mail to the database
+      operationId: addMail
+      consumes:
+      - application/json
+      - application/xml
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - in: body
+        name: body
+        description: Mail object that needs to be added to the database
+        required: true
+        schema:
+          $ref: '#/definitions/Mail'
+      responses:
+        405:
+          description: Invalid input
+        200:
+          description: successful operation
+      security:
+      - postapp_auth:
+        - write:mails
+        - read:mails
+    get:
+      tags:
+      - mail
+      summary: Return every mail stored in the database
+      operationId: getMail
+      consumes:
+      - application/json
+      - application/xml
+      produces:
+      - application/json
+      - application/xml
+      parameters: []
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+               $ref: '#/definitions/Mail'
+            additionalProperties:
+              type: integer
+              format: int32
+      security:
+      - api_key: []
+    
+  /mails/{mailId}:
+    get:
+      tags:
+      - mail
+      summary: Get information about a specific mail
+      description: Returns a single mail
+      operationId: getMailById
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: mailId
+        in: path
+        description: ID of mail that needs to be returned
+        required: true
+        type: integer
+        format: int64
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/Mail'
+            additionalProperties:
+              type: integer
+              format: int32
+        400:
+          description: Invalid ID supplied
+        404:
+          description: Mail not found
+      security:
+      - api_key: []
+    put:
+      tags:
+      - mail
+      summary: Updates a mail in the database with form data
+      operationId: updateMailWithForm
+      consumes:
+      - application/x-www-form-urlencoded
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: mailId
+        in: path
+        description: ID of mail that needs to be updated
+        required: true
+        type: integer
+        format: int64
+      - name: properties
+        in: body
+        description: Updated properties of the mail
+        required: true
+        schema:
+          $ref: '#/definitions/Mail'
+      responses:
+        405:
+          description: Invalid input
+      security:
+      - postapp_auth:
+        - write:mails
+        - read:mails
+    delete:
+      tags:
+      - mail
+      summary: Deletes a mail
+      operationId: deleteMail
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: api_key
+        in: header
+        required: false
+        type: string
+      - name: mailId
+        in: path
+        description: Mail id to delete
+        required: true
+        type: integer
+        format: int64
+      responses:
+        400:
+          description: Invalid ID supplied
+        404:
+          description: Mail not found
+        200:
+          description: successfull operation
+      security:
+      - postapp_auth:
+        - write:mails
+        - read:mails
+  /mails/search/:
+    post:
+      tags:
+      - mail
+      summary: Detailed search from mails
+      operationId: detailedSearch
+      consumes:
+      - application/x-www-form-urlencoded
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - in: body
+        name: body
+        description: Search parameters
+        required: true
+        schema:
+          $ref: '#/definitions/DetailedSearch'
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+               $ref: '#/definitions/Mail'
+            additionalProperties:
+              type: integer
+              format: int32
+      security:
+      - postapp_auth:
+        - write:mails
+        - read:mails
+  /administrators:
+    get:
+      tags:
+      - administrator
+      summary: Returns the administrators working at PostApp
+      description: Returns a map of status codes to quantities
+      operationId: getInventory
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Administrator'
+      security:
+      - api_key: []
+  
+  /user:
+    post:
+      tags:
+      - user
+      summary: Create user
+      description: This can only be done by the logged in user.
+      operationId: createUser
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - in: body
+        name: body
+        description: Created user object
+        required: true
+        schema:
+          $ref: '#/definitions/User'
+      responses:
+        default:
+          description: successful operation
+  /user/login:
+    get:
+      tags:
+      - user
+      summary: Logs user into the system
+      operationId: loginUser
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: username
+        in: query
+        description: The user name for login
+        required: true
+        type: string
+      - name: password
+        in: query
+        description: The password for login in clear text
+        required: true
+        type: string
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: string
+          headers:
+            X-Rate-Limit:
+              type: integer
+              format: int32
+              description: calls per hour allowed by the user
+            X-Expires-After:
+              type: string
+              format: date-time
+              description: date in UTC when token expires
+        400:
+          description: Invalid username/password supplied
+  /user/logout:
+    get:
+      tags:
+      - user
+      summary: Logs out current logged in user session
+      operationId: logoutUser
+      produces:
+      - application/json
+      - application/xml
+      parameters: []
+      responses:
+        default:
+          description: successful operation
+  /user/{username}:
+    get:
+      tags:
+      - user
+      summary: Get user by user name
+      operationId: getUserByName
+      produces:
+      - application/json
+      - application/xml
+      parameters:
+      - name: username
+        in: path
+        description: The name that needs to be fetched. Use user1 for testing. 
+        required: true
+        type: string
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/User'
+        400:
+          description: Invalid username supplied
+        404:
+          description: User not found
+  
+securityDefinitions:
+  postapp_auth:
+    type: oauth2
+    authorizationUrl: http://petstore.swagger.io/oauth/dialog
+    flow: implicit
+    scopes:
+      write:mails: modify mails in the database
+      read:mails: read mails from the database
+  api_key:
+    type: apiKey
+    name: api_key
+    in: header
+definitions:
+  Mail:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      mailId:
+        type: integer
+        format: int64
+      inTime:
+        type: string
+        format: date-time
+      outTime:
+        type: string
+        format: date-time
+      mailAdress:
+        $ref: "#/definitions/Adress"
+      mailType:
+        type: string
+        enum: [csomag, elszamolas,kozlony,level]
+        description: Mail type
+      status:
+        type: string
+        enum: [iktatva,iktatasraVar]
+      admin:
+        $ref: "#/definitions/Administrator"
+        description: The administrator assigned to the mail
+    xml:
+      name: Mail
+  DetailedSearch:
+    type: object
+    properties:
+      mailId:
+        type: array
+        items:
+          type: integer
+          format: int64
+      fromInTime:
+        type: string
+        format: date-time
+      toInTime:
+        type: string
+        format: date-time
+      fromOutTime:
+        type: string
+        format: date-time
+      toOutTime:
+        type: string
+        format: date-time
+      mailAdress:
+        $ref: "#/definitions/Adress"
+      mailType:
+        type: string
+        enum: [csomag, elszamolas,kozlony,level]
+        description: Mail type
+      status:
+        type: string
+        enum: [iktatva,iktatasraVar]
+      admin:
+        $ref: "#/definitions/Administrator"
+        description: The administrator assigned to the mail
+    xml:
+      name: DetailedSearch
+  Adress:
+    type: object
+    properties:
+      name:
+        type: string
+      adress:
+        type: string
+      division:
+        type: string
+    xml:
+      name: Adress
+  Administrator:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+    xml:
+      name: Administrator
+  User:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      username:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      email:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+      userStatus:
+        type: integer
+        format: int32
+        description: User Status
+    xml:
+      name: User
+  Tag:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+    xml:
+      name: Tag
+  ApiResponse:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      type:
+        type: string
+      message:
+        type: string
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+basePath: /PostApp/PostAPI/1.0.0
+schemes:
+ - https
+ - http

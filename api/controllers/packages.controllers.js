@@ -51,15 +51,24 @@ module.exports.getPackages = function(req,res){
             };
     detailJSON.fromDate = undefined;
     detailJSON.toDate = undefined;
+    var packageCount = 0;
+    collection.find(detailJSON).count(function (err, count) {
+        console.log("összes package : " + count);
+        packageCount = count;
+      });
     collection
         .find(detailJSON
         ,PACKAGE_PROPERTIES)
         .skip(offset)
         .limit(count)
         .toArray(function(err,docs){
-           console.log("Found packages",docs);
+           
+           var resp = {};
+           resp.itemCount = packageCount;
+           resp.content = docs; 
+           console.log("Found packages",resp);
             res
             .status(200)
-            .json(docs);
+            .json(resp);
     });
 }
