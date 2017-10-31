@@ -6,6 +6,9 @@ function SearchController ($scope, packageDataFactory) {
     packageDataFactory.getAdmins(vm);
     var postData;
 
+    vm.searching = false;
+    packageDataFactory.searchPackage(postData, vm);
+
     vm.searchPackages = function() {
         var isoFromDate;
         var isoToDate;
@@ -65,9 +68,22 @@ function SearchController ($scope, packageDataFactory) {
     
     vm.printTable = function () {
         var tableToPrint = document.getElementById("printable");
-        newWin = window.open("");
-        newWin.document.write(tableToPrint.outerHTML);
+        var htmlToPrint = '' +
+            '<style type="text/css">' +
+            'table, th, td {' +
+            'border:1px solid #000;' +
+            'border-collapse: collapse;' +
+            'padding;0.5em;' +
+            '}' +
+            '</style>';
+        var newWin = window.open("");
+        htmlToPrint += tableToPrint.outerHTML;
+        newWin.document.write(htmlToPrint);
         newWin.print();
         newWin.close();
+    }
+
+    vm.rowClick = function (result) {
+        result.expanded = !result.expanded;
     }
 }

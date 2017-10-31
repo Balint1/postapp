@@ -1,5 +1,8 @@
 <div class="container">
-    <div class="jumbotron jumbocontainer">
+    <div ng-show="!vm.searching" id="startBtnDiv">
+        <button class="btn btn-warning" id="startBtn" ng-click="vm.searching = !vm.searching">Start searching</button>
+    </div>
+    <div class="jumbotron jumbocontainer fading" ng-show="vm.searching">
         <h1 id="searchtext">Search</h1>
         <form name="vm.searchForm" ng-submit="vm.searchPackages()">
             <div class="searchrowdiv">
@@ -21,8 +24,8 @@
                 <input id="to_date" type="date" ng-model="vm.toDate">
             </div>
             <div class="searchrowdiv">
-                <label for="sender">Sender: </label>
-                <input type="text" id="sender" ng-model="vm.sender">
+                <label for="comment">Comment: </label>
+                <input type="text" id="comment" ng-model="vm.comment">
                 <label for="subject">Subject: </label>
                 <input type="text" id="subject" ng-model="vm.subject">
             </div>
@@ -46,43 +49,52 @@
                     <option ng-repeat="admin in vm.admins" value="{{admin.name}}">{{admin.name}}</option>
                 </select>
             </div>
-            <div class="searchrowdiv">
-                <label for="comment">Comment: </label>
-                <input type="text" id="comment" ng-model="vm.package_comment">
-            </div>
             <div class="searchrowdiv searchbuttondiv">
-                <button type="submit" class="btn btn-primary">Search</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true" style="margin-right: 5px;"></i>Search</button>
             </div>
         </form>
         <div class="newmaildiv">
             <form action="#/newmail" style="display: inline-block;">
-                <button type="submit" class="btn btn-success">Add new mail</button>
+                <button type="submit" class="btn btn-success"><i class="fa fa-plus-square" aria-hidden="true" style="margin-right: 5px;"></i>Add new package</button>
             </form>
             <form ng-submit="vm.printTable()" style="display: inline-block;" ng-show="vm.searchResults.length > 0">
-                <button type="submit" class="btn btn-info">Print Table</button>
+                <button type="submit" class="btn btn-info"><i class="fa fa-print" aria-hidden="true" style="margin-right: 5px;"></i>Print Table</button>
             </form>
         </div>
     </div>
     <div class="container fading" ng-show="vm.searchResults.length > 0">
         <table class="table table-bordered table-hover" id="printable">
-            <th>Package ID</th>
-            <th>Package Type</th>
-            <th>Subject</th>
-            <th>Time</th>
-            <th>Address</th>
-            <th>Division</th>
-            <th>Admin</th>
-            <th>Comment</th>
-            <tr ng-repeat="result in vm.searchResults">
-                <td>{{result.packageId}}</td>
-                <td>{{result.package_type}}</td>
-                <td>{{result.subject}}</td>
-                <td>{{result.time | date}}</td>
-                <td>{{result.adress.zip + " " + result.adress.city + " " + result.adress.adress}}</td>
-                <td>{{result.division}}</td>
-                <td>{{result.admin.name}}</td>
-                <td>{{result.package_comment}}</td>
-            </tr>
+            <thead>
+                <tr>
+                    <td style="width: 90px;">Package ID</td>
+                    <td style="width: 110px;">Package Type</td>
+                    <td>Subject</td>
+                    <td style="width: 110px;">Time</td>
+                    <td>Address</td>
+                    <td>Division</td>
+                    <td>Admin</td>
+                    <td>Comment</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat-start="result in vm.searchResults" ng-click="vm.rowClick(result)">
+                    <td>{{result.packageId}}</td>
+                    <td>{{result.package_type}}</td>
+                    <td>{{result.subject}}</td>
+                    <td>{{result.time | date}}</td>
+                    <td>{{result.adress.zip + " " + result.adress.city + " " + result.adress.adress}}</td>
+                    <td>{{result.division}}</td>
+                    <td>{{result.admin.name}}</td>
+                    <td>{{result.package_comment}}</td>
+                </tr>
+                <tr ng-if="result.expanded" ng-repeat-end="">
+                    <td colspan="100%">
+                        <div>
+                            Test data
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </div>

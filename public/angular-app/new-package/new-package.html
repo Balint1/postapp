@@ -15,8 +15,8 @@
                 <input id="time" type="date">
             </div>
             <div class="searchrowdiv">
-                <label for="sender">Sender: </label>
-                <input type="text" id="sender">
+                <label for="newComment">Comment: </label>
+                <input type="text" id="newComment">
                 <label for="subject">Subject: </label>
                 <input type="text" id="subject">
             </div>
@@ -41,10 +41,6 @@
                     <option value="kati">Kati</option>
                     <option value="jani">Jani</option>
                 </select>
-            </div>
-            <div class="searchrowdiv">
-                <label for="comment">Comment: </label>
-                <input type="text" id="comment">
             </div>
             <div ng-show="new_package_type == 'mail' || new_package_type == 'packet' || new_package_type == 'gazette'" class="fading">
                 <div class="searchrowdiv">
@@ -71,8 +67,12 @@
                     <label for="extra_price">Extra price (Ft): </label>
                     <input type="number" id="extra_price">
                 </div>
+                <div class="searchrowdiv">
+                    <label for="sender">Sender: </label>
+                    <input type="text" id="sender">
+                </div>
                 <div class="searchrowdiv searchbuttondiv">
-                    <button type="submit" class="btn btn-primary">Add package</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true" style="margin-right: 5px;"></i>Add package</button>
                 </div>
             </div>
             <div ng-show="new_package_type == 'invoice'" class="fading">
@@ -89,7 +89,7 @@
                     <input type="number" id="netto">
                 </div>
                 <div class="searchrowdiv searchbuttondiv">
-                    <button type="submit" class="btn btn-primary">Add package</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true" style="margin-right: 5px;"></i>Add package</button>
                 </div>
             </div>
         </form>

@@ -158,8 +158,19 @@ label[for=comment] {
 }
 
 #comment {
-    width: 74%;
+    width: 150px;
     margin-bottom: 0;
+    margin-right: 30px;
+}
+
+label[for=newComment] {
+    margin-right: 20px;
+}
+
+#newComment {
+    width: 150px;
+    margin-bottom: 0;
+    margin-right: 28px;
 }
 
 #division {
@@ -337,6 +348,15 @@ label[for=netto] {
 
 .fading.ng-hide-remove {
     transition: all linear 1000ms;
+}
+thead {
+    font-weight: bold;
+}
+
+#startBtnDiv {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
 .page-package-edit.ng-enter, .page-login.ng-enter, .page-new-package.ng-enter, .page-search.ng-enter 		{
