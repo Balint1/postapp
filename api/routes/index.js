@@ -22,6 +22,9 @@ router
 router
     .route('/invoices')
     .get(ctrlInvoices.invoicessGetAll);
+router
+    .route('/invoices/:packageId')
+    .get(ctrlInvoices.invoicessGetOne);
 ////Admins
 router
     .route('/admins')

@@ -14,19 +14,21 @@ var COLL = 'packages';
 module.exports.getPackages = function(req,res){
     var offset = 0;
     var count = 50;
-
+    //Count és offset kiszedése a query ből
     if(req.query && req.query.offset){
         offset = parseInt(req.query.offset,10);
     }
     if(req.query && req.query.count){
         count = parseInt(req.query.count,10);
     }
+    //adatbáziskapcsolat nyitása
     var db = dbconn.get();
     var collection = db.collection(COLL);
-
+    //keresőJSON kiszedése
     var detailJSON = req.body;
     var fromDate = new Date(req.body.fromDate);
     var toDate = new Date(req.body.toDate);
+    //keresőJSON-ben time beállítása
     if(detailJSON.toDate && toDate == "Invalid Date")
         res
         .status(400)
@@ -51,6 +53,7 @@ module.exports.getPackages = function(req,res){
             };
     detailJSON.fromDate = undefined;
     detailJSON.toDate = undefined;
+    //Összes talált package számának lekérdezése  a lapozáshoz
     var packageCount = 0;
     collection.find(detailJSON).count(function (err, count) {
         console.log("összes package : " + count);

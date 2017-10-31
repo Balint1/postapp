@@ -1,6 +1,6 @@
 var dbconn = require('../data/dbconnection.js'); 
 var INVOICE_PROPERTIES = {
-    _id : false,subject:true,package_type : true , time: true,adress:true,division:true,admin : true, package_comment: true,
+    _id : false,packageId : true,subject:true,package_type : true , time: true,adress:true,division:true,admin : true, package_comment: true,
     invoice_number : true,sender : true,netto : true,brutto : true,expiry : true
 };
 
@@ -28,4 +28,33 @@ module.exports.invoicessGetAll = function(req,res){
             .json(docs);
     });
 
+};
+
+module.exports.invoicessGetOne = function(req,res){
+    var packageId = parseInt(req.params.packageId);
+    var db = dbconn.get();
+    var collection = db.collection('packages');
+    if(collection!= null){
+    collection
+        .findOne({"packageId" : packageId},INVOICE_PROPERTIES,function(err,invoice){
+            if(!invoice)
+            {
+                res.status(404)
+                    .send("Nem található ilyen számla");
+                    console.log("Nem található ilyen számla packageId: ",packageId);
+                    return;
+            }
+            else
+            if(invoice.package_type != "invoice"){
+            res.status(404)
+                .send("Nem található ilyen számla");
+                console.log("Nem található ilyen számla packageId: ",packageId);
+            return;
+            }
+            console.log("Found invoice",invoice);
+            res
+            .status(200)
+            .json(invoice);
+    });
+    }
 };
