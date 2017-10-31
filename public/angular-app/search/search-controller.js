@@ -12,6 +12,7 @@ function SearchController ($scope, packageDataFactory) {
     packageDataFactory.searchPackage(postData, vm, vm.offset);
 
     vm.searchPackages = function() {
+        vm.currentPage=1;
         var isoFromDate;
         var isoToDate;
         if (vm.fromDate) {
@@ -87,6 +88,7 @@ function SearchController ($scope, packageDataFactory) {
 
     vm.rowClick = function (result) {
         result.expanded = !result.expanded;
+        console.log(result.expanded);
     }
 
     vm.getData = function (pageno) {
