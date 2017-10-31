@@ -1,4 +1,4 @@
-angular.module('postapp', ['ngRoute', 'ngAnimate'])
+angular.module('postapp', ['ngRoute', 'ngAnimate', 'angularUtils.directives.dirPagination'])
     .config(config);
 
 function config($routeProvider) {

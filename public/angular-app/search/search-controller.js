@@ -6,8 +6,10 @@ function SearchController ($scope, packageDataFactory) {
     packageDataFactory.getAdmins(vm);
     var postData;
 
+    vm.itemsPerPage = 10;
+    vm.offset = 0;
     vm.searching = false;
-    packageDataFactory.searchPackage(postData, vm);
+    packageDataFactory.searchPackage(postData, vm, vm.offset);
 
     vm.searchPackages = function() {
         var isoFromDate;
@@ -85,5 +87,10 @@ function SearchController ($scope, packageDataFactory) {
 
     vm.rowClick = function (result) {
         result.expanded = !result.expanded;
+    }
+
+    vm.getData = function (pageno) {
+        vm.offset = pageno*vm.itemsPerPage;
+        packageDataFactory.searchPackage(postData, vm, vm.offset);
     }
 }

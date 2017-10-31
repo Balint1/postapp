@@ -6,9 +6,10 @@ function packageDataFactory($http) {
         getAdmins: getAdmins
     };
     
-    function searchPackage(postData, vm) {
-        return $http.post('/api/packages/search', postData).then(function(response){
+    function searchPackage(postData, vm, offset) {
+        return $http.post('/api/packages/search?offset=' + offset + '&count=10', postData).then(function(response){
                 vm.searchResults = response.data;
+                vm.totalCount = 100;
                 }).catch(function(error){
                     console.log(error);
                 });

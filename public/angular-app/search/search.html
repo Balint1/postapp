@@ -77,7 +77,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat-start="result in vm.searchResults" ng-click="vm.rowClick(result)">
+                <tr dir-paginate="result in vm.searchResults|itemsPerPage:vm.itemsPerPage" total-items="vm.totalCount" ng-click="vm.rowClick(result)">
                     <td>{{result.packageId}}</td>
                     <td>{{result.package_type}}</td>
                     <td>{{result.subject}}</td>
@@ -87,7 +87,7 @@
                     <td>{{result.admin.name}}</td>
                     <td>{{result.package_comment}}</td>
                 </tr>
-                <tr ng-if="result.expanded" ng-repeat-end="">
+                <tr ng-if="result.expanded" dir-paginate-end="">
                     <td colspan="100%">
                         <div>
                             Test data
@@ -96,5 +96,13 @@
                 </tr>
             </tbody>
         </table>
+        <div class="pageDiv">
+            <dir-pagination-controls
+                    max-size="8"
+                    direction-links="true"
+                    boundary-links="true"
+                    on-page-change="vm.getData(newPageNumber)" >
+            </dir-pagination-controls>
+        </div>
     </div>
 </div>

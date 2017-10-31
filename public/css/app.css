@@ -326,6 +326,10 @@ label[for=netto] {
     width: 150px;
 }
 
+.pageDiv {
+    text-align: center;
+}
+
 .page.ng-leave 	{ z-index:9999; }
 .page.ng-enter 	{ z-index:8888; }
 
