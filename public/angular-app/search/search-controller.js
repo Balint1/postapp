@@ -9,9 +9,25 @@ function SearchController ($scope, packageDataFactory) {
     vm.itemsPerPage = 10;
     vm.offset = 0;
     vm.searching = false;
-    packageDataFactory.searchPackage(postData, vm, vm.offset);
+    vm.searchResults = null;
+
+    vm.getData = function (pageno) {
+
+        if (vm.searchResults) {
+            for (var i = 0; i < vm.searchResults.length; i++) {
+                vm.searchResults[i].expanded = false;
+            }
+        }
+
+        vm.offset = (pageno - 1)*vm.itemsPerPage;
+        console.log(pageno);
+        packageDataFactory.searchPackage(postData, vm, vm.offset);
+    }
+
+    vm.getData(1);
 
     vm.searchPackages = function() {
+
         vm.currentPage=1;
         var isoFromDate;
         var isoToDate;
@@ -89,10 +105,5 @@ function SearchController ($scope, packageDataFactory) {
     vm.rowClick = function (result) {
         result.expanded = !result.expanded;
         console.log(result.expanded);
-    }
-
-    vm.getData = function (pageno) {
-        vm.offset = pageno*vm.itemsPerPage;
-        packageDataFactory.searchPackage(postData, vm, vm.offset);
     }
 }

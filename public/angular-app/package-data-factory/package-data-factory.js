@@ -8,8 +8,8 @@ function packageDataFactory($http) {
     
     function searchPackage(postData, vm, offset) {
         return $http.post('/api/packages/search?offset=' + offset + '&count=10', postData).then(function(response){
-                vm.searchResults = response.data;
-                vm.totalCount = 100;
+                vm.searchResults = response.data.content;
+                vm.totalCount = response.data.itemCount;
                 }).catch(function(error){
                     console.log(error);
                 });
