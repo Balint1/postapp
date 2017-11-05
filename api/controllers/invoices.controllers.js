@@ -13,3 +13,6 @@ module.exports.invoicessGetAlll = function(req,res){
 module.exports.invoicessGetOnee = function(req,res){
     ctrlGeneral.generalGetOne(req,res,type,INVOICE_PROPERTIES);
 }
+module.exports.invoicePostOne = function(req,res){
+    ctrlGeneral.generalPostOne(req,res,type);
+}

@@ -26,12 +26,37 @@ module.exports.generalGetAll = function(req,res,type,PROPERTIES){
 
 };
 
+module.exports.generalPostOne = function(req,res,type){
+var db = dbconn.get();
+var collection = db.collection('packages');
+var data = req.body;
+if(!(data.admin && data.package_type && data.division)){
+    res.status(400).send("Rossz szintaktika");
+    return;
+}
+var wrongType = true;
+for(var i = 0 ; i < type.length;i++){
+    if(type[i] == data.package_type)
+    wrongType = false;
+}
+if(wrongType){
+    res.status(400).send("Rossz típus! " + data.package_type)
+    return;
+}
+if(!data.time)
+data.time = new Date();
+data.packageId = new Date().getTime();
+collection.insertOne(data, function(err,resp){
+if (err) 
+res.status(400);
+console.log("1 document inserted : " + data.packageId);
+res.status(201).send({packageId : data.packageId});
+});
+
+    
+}
+
 module.exports.generalGetOne = function(req,res,type,PROPERTIES){
-    var alma = ["alma","korte","szilva"];
-    typeJSON(alma);
-
-
-
     var packageId = parseInt(req.params.packageId);
     var db = dbconn.get();
     var collection = db.collection('packages');

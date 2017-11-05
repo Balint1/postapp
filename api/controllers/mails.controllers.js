@@ -15,3 +15,6 @@ module.exports.mailsGetAll = function(req,res){
 module.exports.mailsGetOne = function(req,res){
     ctrlGeneral.generalGetOne(req,res,type,MAIL_PROPERTIES);
 }
+module.exports.mailsPostOne = function(req,res){
+    ctrlGeneral.generalPostOne(req,res,type);
+}
