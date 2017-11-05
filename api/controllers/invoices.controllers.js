@@ -16,3 +16,6 @@ module.exports.invoicessGetOnee = function(req,res){
 module.exports.invoicePostOne = function(req,res){
     ctrlGeneral.generalPostOne(req,res,type);
 }
+module.exports.invoicePutOne = function(req,res){
+    ctrlGeneral.generalPutOne(req,res,type);
+}

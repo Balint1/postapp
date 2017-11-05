@@ -4,6 +4,8 @@
 //egy másik parancssorban : mongo
 //use postapp
 //db.createCollection("packages")
+//db.createCollection("admins")
+//ha már egyszer létrehoztad ezeket akkor csak az utolsó lépés kell:
 //egy új commandline ban elindítod a az initdb.js-t : node api\data\initdb.js (ha a projekt gyökérmappájában vagy)
 
 var packagesData = require('./packages.json');

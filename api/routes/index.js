@@ -19,7 +19,8 @@ router
     .post(ctrlMails.mailsPostOne);
 router
     .route('/mails/:packageId')
-    .get(ctrlMails.mailsGetOne);
+    .get(ctrlMails.mailsGetOne)
+    .put(ctrlMails.mailsPutOne);
 ////Invoices
 router
     .route('/invoices')
@@ -27,7 +28,8 @@ router
     .post(ctrlInvoices.invoicePostOne);
 router
     .route('/invoices/:packageId')
-    .get(ctrlInvoices.invoicessGetOnee);
+    .get(ctrlInvoices.invoicessGetOnee)
+    .put(ctrlInvoices.invoicePutOne);
 ////Admins
 router
     .route('/admins')

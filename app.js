@@ -19,7 +19,8 @@ app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.use(bodyParser.urlencoded({ extended: false }))
  
 // parse application/json 
-app.use(bodyParser.json())
+app.use(bodyParser.json());
+
 app.use('/api',routes);
 
 var server = app.listen(app.get('port'), function(){

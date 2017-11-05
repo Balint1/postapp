@@ -18,3 +18,6 @@ module.exports.mailsGetOne = function(req,res){
 module.exports.mailsPostOne = function(req,res){
     ctrlGeneral.generalPostOne(req,res,type);
 }
+module.exports.mailsPutOne = function(req,res){
+    ctrlGeneral.generalPutOne(req,res,type);
+}
