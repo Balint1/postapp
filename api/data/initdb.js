@@ -33,6 +33,12 @@ MongoClient.connect(dburl,function(err,db){
                                         packages.update({packageId : {$gte: 50, $lt : 100 }},
                                         {$set : {time : new Date("2016-08-11T19:29:49Z")}},
                                         {multi : true});
+        packages.update({packageId : {$gte: 0, $lt : 50 }},
+                                        {$set : {invoice_number : "AB45F54KD"}},
+                                        {multi : true});
+                                        packages.update({packageId : {$gte: 50, $lt : 100 }},
+                                        {$set : {invoice_number :"CHKL43HZT12F"}},
+                                        {multi : true});
         packages.update({"admin.name" : "Jancsi"},{$set :{"admin.id" : 1}},{multi : true});
         packages.update({"admin.name" : "Peti"},{$set :{"admin.id" : 2}},{multi : true});
         packages.update({"admin.name" : "Klára"},{$set :{"admin.id" : 3}},{multi : true});
