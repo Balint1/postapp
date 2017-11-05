@@ -26,6 +26,7 @@ module.exports.getPackages = function(req,res){
     var collection = db.collection(COLL);
     //keresőJSON kiszedése
     var detailJSON = req.body;
+    console.log(detailJSON);
     var fromDate = new Date(req.body.fromDate);
     var toDate = new Date(req.body.toDate);
     //keresőJSON-ben time beállítása
@@ -72,7 +73,7 @@ module.exports.getPackages = function(req,res){
     collection.find(detailJSON).count(function (err, count) {
         console.log("összes package : " + count);
         resp.itemCount = count;
-        console.log("Found packages",resp);
+        //console.log("Found packages",resp);
         res
         .status(200)
         .json(resp);
@@ -114,17 +115,17 @@ function reformatDeailJson(detailJSON)
     if(detailJSON.package_type)
     conditions[i].package_type = detailJSON.package_type;
     if(detailJSON.subject)
-    conditions[i].subject = detailJSON.subject ;
+    conditions[i].subject =   {$regex : ".*"+detailJSON.subject+".*"} ;
     if(detailJSON.division)
     conditions[i].division = detailJSON.division ;
     if(detailJSON.package_comment)
-    conditions[i].package_comment = detailJSON.package_comment;
+    conditions[i].package_comment = {$regex : ".*"+detailJSON.package_comment+".*"};
     i++;
    
 
 
    var newJson = {$and : conditions};
-   
+  
     
     return newJson;
 
