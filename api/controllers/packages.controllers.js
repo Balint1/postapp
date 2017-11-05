@@ -54,24 +54,28 @@ module.exports.getPackages = function(req,res){
     detailJSON.fromDate = undefined;
     detailJSON.toDate = undefined;
     //Összes talált package számának lekérdezése  a lapozáshoz
-    var packageCount = 0;
-    collection.find(detailJSON).count(function (err, count) {
-        console.log("összes package : " + count);
-        packageCount = count;
-      });
-    collection
+    var resp = {};
+ 
+        collection
         .find(detailJSON
         ,PACKAGE_PROPERTIES)
         .skip(offset)
         .limit(count)
-        .toArray(function(err,docs){
-           
-           var resp = {};
-           resp.itemCount = packageCount;
-           resp.content = docs; 
-           console.log("Found packages",resp);
-            res
-            .status(200)
-            .json(resp);
+        .toArray(function(err,docs){          
+           resp.content = docs;           
     });
+
+    
+    setTimeout(function(){
+    collection.find(detailJSON).count(function (err, count) {
+        console.log("összes package : " + count);
+        resp.itemCount = count;
+        console.log("Found packages",resp);
+        res
+        .status(200)
+        .json(resp);
+      });
+    },200);
 }
+
+

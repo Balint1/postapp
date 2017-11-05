@@ -16,15 +16,15 @@ router
     .route('/mails')
     .get(ctrlMails.mailsGetAll);
 router
-    .route('/mails/:mailId')
+    .route('/mails/:packageId')
     .get(ctrlMails.mailsGetOne);
 ////Invoices
 router
     .route('/invoices')
-    .get(ctrlInvoices.invoicessGetAll);
+    .get(ctrlInvoices.invoicessGetAlll);
 router
     .route('/invoices/:packageId')
-    .get(ctrlInvoices.invoicessGetOne);
+    .get(ctrlInvoices.invoicessGetOnee);
 ////Admins
 router
     .route('/admins')
