@@ -110,6 +110,6 @@ function SearchController ($scope, packageDataFactory) {
 
     vm.rowClick = function (result) {
         result.expanded = !result.expanded;
-        console.log(result.expanded);
+        packageDataFactory.getDetails(result);
     }
 }

@@ -39,9 +39,8 @@
                 <label for="division">Division: </label>
                 <select name="division" id="division" ng-model="vm.division">
                     <option value=""></option>
-                    <option value="A">Division A</option>
-                    <option value="B">Division B</option>
-                    <option value="C">Division C</option>
+                    <option value="RX">RX</option>
+                    <option value="Dia">Dia</option>
                 </select>
                 <label for="admin">Admin:  </label>
                 <select name="admin" id="admin" ng-model="vm.admin">
@@ -89,8 +88,26 @@
                 </tr>
                 <tr ng-if="result.expanded" dir-paginate-end="" >
                     <td colspan="100%">
-                        <div>
-                            Test data
+                        <div class="rowdiv" ng-show="result.package_type == 'invoice'">
+                            <div class="rowdiv">
+                                <span><strong>Invoice#:</strong>{{result.details.invoice_number}}</span>
+                                <span><strong>Expiry:</strong>{{result.details.expiry}}</span>
+                                <span><strong>Brutto:</strong>{{result.details.brutto}}</span>
+                                <span><strong>Netto:</strong>{{result.details.netto}}</span>
+                                <button class="btn btn-success" style="float: right;">Edit</button>
+                            </div>
+                        </div>
+                        <div class="rowdiv" ng-show="result.package_type != 'invoice'">
+                            <div class="rowdiv">
+                                <span><strong>Category:</strong>{{result.details.category}}</span>
+                                <span><strong>Delivery type:</strong>{{result.details.delivery_type}}</span>
+                                <span><strong>Count:</strong>{{result.details.count}}</span>
+                                <span><strong>Value:</strong>{{result.details.value}}</span>
+                                <span><strong>Weight:</strong>{{result.details.weight}}</span>
+                                <span><strong>Weight price:</strong>{{result.details.weight_price}}</span>
+                                <span><strong>Extra price:</strong>{{result.details.extra_price}}</span>
+                                <button class="btn btn-success" style="float: right;">Edit</button>
+                            </div>
                         </div>
                     </td>
                 </tr>

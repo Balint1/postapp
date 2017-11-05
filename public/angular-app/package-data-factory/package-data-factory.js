@@ -3,7 +3,8 @@ angular.module('postapp').factory('packageDataFactory', packageDataFactory);
 function packageDataFactory($http) {
     return {
        searchPackage: searchPackage,
-        getAdmins: getAdmins
+        getAdmins: getAdmins,
+        getDetails: getDetails
     };
     
     function searchPackage(postData, vm, offset) {
@@ -13,6 +14,24 @@ function packageDataFactory($http) {
                 }).catch(function(error){
                     console.log(error);
                 });
+    }
+
+    function getDetails(result) {
+        if (result.package_type == 'invoice') {
+            return $http.get('/api/invoices/' + result.packageId).then(function(response) {
+                result.details = response.data;
+                console.log(result.details);
+            }).catch(function (error) {
+                console.log(error);
+            });
+        } else {
+            return $http.get('/api/mails/' + result.packageId).then(function(response) {
+                result.details = response.data;
+                console.log(result.details);
+            }).catch(function (error) {
+                console.log(error);
+            });
+        }
     }
 
     function getAdmins(vm) {
