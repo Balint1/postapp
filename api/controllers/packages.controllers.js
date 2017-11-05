@@ -51,8 +51,10 @@ module.exports.getPackages = function(req,res){
                 detailJSON.time = {
                 $gte: new Date(req.body.fromDate)
             };
-    detailJSON.fromDate = undefined;
-    detailJSON.toDate = undefined;
+   
+
+    detailJSON = reformatDeailJson(detailJSON);
+    console.log(detailJSON);
     //Összes talált package számának lekérdezése  a lapozáshoz
     var resp = {};
  
@@ -78,4 +80,52 @@ module.exports.getPackages = function(req,res){
     },200);
 }
 
+function reformatDeailJson(detailJSON)
+{
+    var conditions = [];
+    var i = 0;
+    if(detailJSON.adress && detailJSON.adress.adress){
+    var addr = detailJSON.adress.adress;
+    conditions[i] = {"adress.adress" : {$regex : ".*"+ addr+".*"}};
+    i++;
+    }
+    if(detailJSON.adress && detailJSON.adress.city){
+        var city = detailJSON.adress.city;
+        conditions[i] = {"adress.city" : {$regex : ".*"+city+".*"}};
+        i++;
+    }
+    if(detailJSON.adress && detailJSON.adress.zip){
+        var zip = detailJSON.adress.zip;
+        conditions[i] = {"adress.zip" : zip};
+        i++;
+    }
+    if(detailJSON.admin && detailJSON.admin.id){
+        var id = detailJSON.admin.id;
+        conditions[i] = {"admin.id" : id};
+        i++;
+    }
+    if(detailJSON.admin && detailJSON.admin.name){
+        var name = detailJSON.admin.name;
+        conditions[i] = {"admin.name" :  {$regex : ".*"+name+".*"}};
+        i++;
+    }
+  
+    conditions[i] = {};
+    if(detailJSON.package_type)
+    conditions[i].package_type = detailJSON.package_type;
+    if(detailJSON.subject)
+    conditions[i].subject = detailJSON.subject ;
+    if(detailJSON.division)
+    conditions[i].division = detailJSON.division ;
+    if(detailJSON.package_comment)
+    conditions[i].package_comment = detailJSON.package_comment;
+    i++;
+   
 
+
+   var newJson = {$and : conditions};
+   
+    
+    return newJson;
+
+}
