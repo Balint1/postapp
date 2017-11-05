@@ -44,9 +44,15 @@ function SearchController ($scope, packageDataFactory) {
             package_type : vm.package_type,
             fromDate : isoFromDate,
             toDate: isoToDate,
-            adress: vm.adress,
+            adress: {
+                adress: vm.adress,
+                city: vm.city,
+                zip: vm.zip
+            },
             division: vm.division,
-            admin : vm.admin,
+            admin : {
+                name : vm.admin
+            },
             package_comment: vm.package_comment
         };
 
@@ -71,7 +77,7 @@ function SearchController ($scope, packageDataFactory) {
         if (!postData["division"]) {
             delete postData["division"];
         }
-        if (!postData["admin"]) {
+        if (!postData["admin"]["name"]) {
             delete postData["admin"];
         }
         if (!postData["package_comment"]) {
