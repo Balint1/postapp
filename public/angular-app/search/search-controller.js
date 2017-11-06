@@ -28,6 +28,12 @@ function SearchController ($scope, packageDataFactory, $location) {
 
     vm.searchPackages = function() {
 
+        if (vm.searchResults) {
+            for (var i = 0; i < vm.searchResults.length; i++) {
+                vm.searchResults[i].expanded = false;
+            }
+        }
+
         vm.currentPage=1;
         var isoFromDate;
         var isoToDate;
