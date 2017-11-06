@@ -1,6 +1,6 @@
 angular.module('postapp').controller('SearchController', SearchController);
 
-function SearchController ($scope, packageDataFactory) {
+function SearchController ($scope, packageDataFactory, $location) {
     var vm = this;
     $scope.pageClass = 'page-search';
     packageDataFactory.getAdmins(vm);
@@ -22,7 +22,7 @@ function SearchController ($scope, packageDataFactory) {
         vm.offset = (pageno - 1)*vm.itemsPerPage;
         console.log(pageno);
         packageDataFactory.searchPackage(postData, vm, vm.offset);
-    }
+    };
 
     vm.getData(1);
 
@@ -89,7 +89,7 @@ function SearchController ($scope, packageDataFactory) {
             packageDataFactory.searchPackage(postData, vm);
         }
 
-    }
+    };
     
     vm.printTable = function () {
         var tableToPrint = document.getElementById("printable");
@@ -106,10 +106,15 @@ function SearchController ($scope, packageDataFactory) {
         newWin.document.write(htmlToPrint);
         newWin.print();
         newWin.close();
-    }
+    };
 
     vm.rowClick = function (result) {
         result.expanded = !result.expanded;
         packageDataFactory.getDetails(result);
-    }
+    };
+
+    vm.editPackage = function (package) {
+        $location.path('/edit/' + package.packageId);
+    };
+
 }

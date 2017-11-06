@@ -1,8 +1,9 @@
 angular.module('postapp').controller('NewPackageController', NewPackageController);
 
-function NewPackageController ($scope, mailDataFactory, invoiceDataFactory, $location) {
+function NewPackageController ($scope, mailDataFactory, invoiceDataFactory, $location, packageDataFactory) {
     var vm = this;
     $scope.pageClass = 'page-new-package';
+    packageDataFactory.getAdmins(vm);
     
     vm.addPackage = function () {
         var postData;
@@ -11,10 +12,22 @@ function NewPackageController ($scope, mailDataFactory, invoiceDataFactory, $loc
             isoDate = new Date(vm.time).toISOString();
         }
 
+        var adminId;
+        if (vm.admin === 'Jancsi') {
+            adminId = 1;
+        } else if (vm.admin === 'Peti') {
+            adminId = 2;
+        } else if (vm.admin === 'Peti') {
+            adminId = 3;
+        } else if (vm.admin === 'Peti') {
+            adminId = 4;
+        }
+
         if (vm.new_package_type === 'invoice') {
             postData = {
                 admin: {
-                    name: vm.admin
+                    name: vm.admin,
+                    id: adminId
                 },
                 adress: {
                     adress: vm.adress,

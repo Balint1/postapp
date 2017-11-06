@@ -23,6 +23,11 @@ function config($routeProvider) {
             templateUrl: 'angular-app/login/login.html',
             controller: LoginController,
             controllerAs: 'vm'
+        })
+        .when('/edit/:id', {
+            templateUrl: 'angular-app/package-edit/package-edit.html',
+            controller: PackageEditController,
+            controllerAs: 'vm'
         });
 }
 

@@ -36,9 +36,7 @@
                 <label for="admin">Admin:  </label>
                 <select name="admin" id="admin" ng-model="vm.admin">
                     <option value=""></option>
-                    <option value="juli">Juli</option>
-                    <option value="kati">Kati</option>
-                    <option value="jani">Jani</option>
+                    <option ng-repeat="admin in vm.admins" value="{{admin.name}}">{{admin.name}}</option>
                 </select>
             </div>
             <div ng-show="vm.new_package_type == 'mail' || vm.new_package_type == 'packet' || vm.new_package_type == 'gazette'" class="fading">

@@ -3,7 +3,8 @@ angular.module('postapp').factory('invoiceDataFactory', invoiceDataFactory);
 function invoiceDataFactory($http) {
     
     return {
-        postInvoice: postInvoice
+        postInvoice: postInvoice,
+        putInvoice: putInvoice
     };
     
     function postInvoice(invoice) {
@@ -13,5 +14,13 @@ function invoiceDataFactory($http) {
             console.log(error);
         });
     }
-    
+
+    function putInvoice(invoice, id) {
+        return $http.put('/api/invoices/' + id, invoice).then(function (response) {
+            return response;
+        }).catch(function (error) {
+            console.log(error);
+        });
+    }
+
 }

@@ -1,33 +1,86 @@
 <div class="container">
     <div class="jumbotron jumbocontainer">
-        <h1 id="newmailtext">Edit mail</h1>
-        <form action="" method="post">
+        <h1 id="newmailtext">Edit package</h1>
+        <form name="vm.editForm" ng-submit="vm.editPackage()">
             <div class="searchrowdiv">
-                <label for="arrive_date">Arrive date: </label>
-                <input id="arrive_date" type="date">
-                <label for="admin">Administrator: </label>
-                <select name="administrators" id="admin">
-                    <option value="jani">Jani</option>
-                    <option value="kati">Kati</option>
-                    <option value="elek">Elek</option>
+                <label for="new_package_type">Type: </label>
+                <select name="new_package_type" id="new_package_type" ng-model="vm.package_type">
+                    <option value="mail" ng-disabled="vm.editing.package_type!='mail'">Mail</option>
+                    <option value="packet" ng-disabled="vm.editing.package_type!='packet'">Packet</option>
+                    <option value="gazette" ng-disabled="vm.editing.package_type!='gazette'">Gazette</option>
+                    <option value="invoice" ng-disabled="vm.editing.package_type!='invoice'">Invoice</option>
                 </select>
+                <label for="time">Time (date): </label>
+                <input id="time" type="date" ng-model="vm.date">
             </div>
             <div class="searchrowdiv">
-                <label for="before_date">Filing before: </label>
-                <input id="before_date" type="date">
-                <label for="status">Status: </label>
-                <select name="status" id="status">
-                    <option value="waiting">Waiting for filing</option>
-                    <option value="completed">Filing completed</option>
-                </select>
+                <label for="newComment">Comment: </label>
+                <input type="text" id="newComment" ng-model="vm.comment">
+                <label for="subject">Subject: </label>
+                <input type="text" id="subject" ng-model="vm.subject">
+            </div>
+            <div class="searchrowdiv">
+                <label for="address">Address: </label>
+                <input type="text" id="address" placeholder="Address" ng-model="vm.adress">
+                <input type="text" id="city" placeholder="City" ng-model="vm.city">
+                <input type="number" id="zip" placeholder="Zip" ng-model="vm.zip">
             </div>
             <div class="searchrowdiv">
                 <label for="division">Division: </label>
-                <select name="division" id="division">
-                    <option value="a">Division A</option>
-                    <option value="b">Division B</option>
-                    <option value="c">Division C</option>
+                <select name="division" id="division" ng-model="vm.division">
+                    <option value=""></option>
+                    <option value="RX">RX</option>
+                    <option value="Dia">Dia</option>
                 </select>
+                <label for="admin">Admin:  </label>
+                <select name="admin" id="admin" ng-model="vm.admin">
+                    <option value=""></option>
+                    <option ng-repeat="admin in vm.admins" value="{{admin.name}}">{{admin.name}}</option>
+                </select>
+            </div>
+            <div ng-show="vm.package_type == 'mail' || vm.package_type == 'packet' || vm.package_type == 'gazette'" class="fading">
+                <div class="searchrowdiv">
+                    <label for="category">Category: </label>
+                    <input type="text" id="category" ng-model="vm.category">
+                    <label for="delivery">Delivery:  </label>
+                    <select name="delivery" id="delivery" ng-model="vm.delivery">
+                        <option disabled selected value hidden></option>
+                        <option value="normal">Normal</option>
+                        <option value="express">Express</option>
+                    </select>
+                </div>
+                <div class="searchrowdiv">
+                    <label for="count">Count: </label>
+                    <input type="number" id="count" ng-model="vm.count">
+                    <label for="weight">Weight (gramm): </label>
+                    <input type="number" id="weight" ng-model="vm.weight">
+                    <label for="value">Value (Ft): </label>
+                    <input type="number" id="value" ng-model="vm.value">
+                </div>
+                <div class="searchrowdiv">
+                    <label for="weight_price">Weight price (Ft): </label>
+                    <input type="number" id="weight_price" ng-model="vm.weight_price">
+                    <label for="extra_price">Extra price (Ft): </label>
+                    <input type="number" id="extra_price" ng-model="vm.extra_price">
+                </div>
+                <div class="searchrowdiv">
+                    <label for="sender">Sender: </label>
+                    <input type="text" id="sender" ng-model="vm.sender">
+                </div>
+            </div>
+            <div ng-show="vm.package_type == 'invoice'" class="fading">
+                <div class="searchrowdiv">
+                    <label for="invoice_number">Invoice# : </label>
+                    <input type="text" id="invoice_number" ng-model="vm.invoice_number">
+                    <label for="expiry">Expiry: </label>
+                    <input type="number" id="expiry" ng-model="vm.expiry">
+                </div>
+                <div class="searchrowdiv">
+                    <label for="brutto">Brutto : </label>
+                    <input type="number" id="brutto" ng-model="vm.brutto">
+                    <label for="netto">Netto: </label>
+                    <input type="number" id="netto" ng-model="vm.netto">
+                </div>
             </div>
             <div class="searchrowdiv searchbuttondiv">
                 <button id="savebutton" type="submit" class="btn btn-success">Save changes</button>
