@@ -5,6 +5,7 @@
 //use postapp
 //db.createCollection("packages")
 //db.createCollection("admins")
+//db.createCollection("users")
 //ha már egyszer létrehoztad ezeket akkor csak az utolsó lépés kell:
 //egy új commandline ban elindítod a az initdb.js-t : node api\data\initdb.js (ha a projekt gyökérmappájában vagy)
 
@@ -21,8 +22,10 @@ MongoClient.connect(dburl,function(err,db){
         console.log("DB connection open"); 
         var packages = _connection.collection('packages');
         var admins = _connection.collection('admins');
+        var users = _connection.collection('users');
         packages.remove({});
         admins.remove({});
+        users.remove({});
         packages.insert(packagesData);
         admins.insert([ { id: 1, name: 'Jancsi' },
         { id: 2, name: 'Peti' },
@@ -45,6 +48,9 @@ MongoClient.connect(dburl,function(err,db){
         packages.update({"admin.name" : "Peti"},{$set :{"admin.id" : 2}},{multi : true});
         packages.update({"admin.name" : "Klára"},{$set :{"admin.id" : 3}},{multi : true});
         packages.update({"admin.name" : "Lilla"},{$set :{"admin.id" : 4}},{multi : true});
+
+      
+        users.insert({"username" : "admin","password" : "$2a$10$.QE1Pitq9kuaMpqbarQqm.CHHDkG.v7.SBSpm4LEUJ6m/LMFc2ORq"});
         db.close();
     }
  
