@@ -26,6 +26,7 @@ function LoginController ($scope, $http, $location, $window, AuthFactory, jwtHel
                     var token = $window.sessionStorage.token;
                     var decodedToken = jwtHelper.decodeToken(token);
                     vm.loggedInUser = decodedToken.username;
+                    $location.path('/');
                 }
             }).catch(function (error) {
                 console.log(error);

@@ -29,7 +29,6 @@ function AuthInterceptor($location, $q, $window, AuthFactory) {
         if (rejection.status === 401 || rejection.status === 403) {
             delete $window.sessionStorage.token;
             AuthFactory.isLoggedIn = false;
-            $location.path('/');
         }
         return $q.reject(rejection);
     }
