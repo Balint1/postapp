@@ -62,6 +62,7 @@ module.exports.getPackages = function(req,res){
         collection
         .find(detailJSON
         ,PACKAGE_PROPERTIES)
+        .sort({time : -1})
         .skip(offset)
         .limit(count)
         .toArray(function(err,docs){          
