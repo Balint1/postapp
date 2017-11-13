@@ -18,10 +18,15 @@ module.exports.generalGetAll = function(req,res,type,PROPERTIES){
         .skip(offset)
         .limit(count)
         .toArray(function(err,docs){
-            console.log("Found "+ type+"s",docs);
-            res
-            .status(200)
-            .json(docs);
+            if(docs.deleted){
+                res.status(404).json("Nem található ilyen számla");
+            }else {
+                console.log("Found "+ type+"s",docs);
+                res
+                .status(200)
+                .json(docs);    
+            }
+            
     });
 
 };
@@ -46,6 +51,7 @@ if(wrongType){
 if(!data.time)
 data.time = new Date();
 data.packageId = new Date().getTime();
+data.user = req.user;
 collection.insertOne(data, function(err,resp){
 if (err) 
 res.status(400);
@@ -63,16 +69,20 @@ module.exports.generalGetOne = function(req,res,type,PROPERTIES){
         .findOne({$and : [{"packageId" : packageId}, {$or : typeJSON(type) }]},PROPERTIES,function(err,invoice){
             if(!invoice)
             {
+                
                 res.status(404)
                     .send("Nem található ilyen "+ type[0]);
                     console.log("Nem található ilyen "+ type[0] +" packageId: ",packageId);
                     return;
             }
-            
+            if(invoice.deleted){
+                res.status(404).json("Nem található ilyen számla");
+            }else {
             console.log("Found " + type,invoice);
             res
             .status(200)
             .json(invoice);
+            }
     });
     }
 };

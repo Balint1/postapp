@@ -51,6 +51,7 @@ MongoClient.connect(dburl,function(err,db){
 
       
         users.insert({"username" : "admin","password" : "$2a$10$.QE1Pitq9kuaMpqbarQqm.CHHDkG.v7.SBSpm4LEUJ6m/LMFc2ORq"});
+        packages.update({},{$set : {deleted : false}},{multi : true});
         db.close();
     }
  
