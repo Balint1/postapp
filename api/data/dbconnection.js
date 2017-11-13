@@ -1,5 +1,5 @@
 var MongoClient = require('mongodb').MongoClient;
-var dburl = 'mongodb://188.142.205.191:27017/postapp';
+var dburl = 'mongodb://localhost:27017/postapp';
 var _connection = null;
 
 var open = function(){

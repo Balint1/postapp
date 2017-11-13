@@ -56,6 +56,7 @@ collection.insertOne(data, function(err,resp){
 if (err) 
 res.status(400);
 console.log("1 document inserted : " + data.packageId);
+console.log(data);
 res.status(201).send({packageId : data.packageId});
 });    
 }
