@@ -21,6 +21,7 @@ function LoginController ($scope, $http, $location, $window, AuthFactory, jwtHel
 
             $http.post('/api/users/login', user).then(function (response) {
                 if (response.data.success) {
+                    vm.submitted = false;
                     $window.sessionStorage.token = response.data.token;
                     AuthFactory.isLoggedIn = true;
                     var token = $window.sessionStorage.token;
@@ -29,7 +30,7 @@ function LoginController ($scope, $http, $location, $window, AuthFactory, jwtHel
                     $location.path('/');
                 }
             }).catch(function (error) {
-                console.log(error);
+                vm.submitted = true;
             });
 
         }

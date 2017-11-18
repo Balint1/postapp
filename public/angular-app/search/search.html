@@ -1,6 +1,7 @@
 <div class="container">
-    <div ng-show="!vm.searching" id="startBtnDiv">
-        <button class="btn btn-warning" id="startBtn" ng-click="vm.searching = !vm.searching">Start searching</button>
+    <div id="startBtnDiv" style="margin-bottom: 10px">
+        <button ng-show="!vm.searching" class="btn btn-warning" id="startBtn" ng-click="vm.searching = !vm.searching" style="margin-right: 5px">Start searching</button>
+        <button ng-if="vm.isLoggedIn()" type="submit" class="btn btn-success" ng-click="vm.addNewPackage()"><i class="fa fa-plus-square" aria-hidden="true" style="margin-right: 5px;"></i>Add new package</button>
     </div>
     <div class="jumbotron jumbocontainer fading" ng-show="vm.searching">
         <h1 id="searchtext">Search</h1>
@@ -53,9 +54,6 @@
             </div>
         </form>
         <div class="newmaildiv">
-            <form action="#/newmail" style="display: inline-block;">
-                <button type="submit" class="btn btn-success"><i class="fa fa-plus-square" aria-hidden="true" style="margin-right: 5px;"></i>Add new package</button>
-            </form>
             <form ng-submit="vm.printTable()" style="display: inline-block;" ng-show="vm.searchResults.length > 0">
                 <button type="submit" class="btn btn-info"><i class="fa fa-print" aria-hidden="true" style="margin-right: 5px;"></i>Print Table</button>
             </form>
@@ -106,7 +104,7 @@
                                 <span><strong>Weight:</strong>{{result.details.weight}}</span>
                                 <span><strong>Weight price:</strong>{{result.details.weight_price}}</span>
                                 <span><strong>Extra price:</strong>{{result.details.extra_price}}</span>
-                                <button class="btn btn-success" ng-click="vm.editPackage(result)" style="float: right;">Edit</button>
+                                <button ng-if="vm.isLoggedIn()" class="btn btn-success" ng-click="vm.editPackage(result)" style="float: right;">Edit</button>
                             </div>
                         </div>
                     </td>

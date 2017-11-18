@@ -1,6 +1,6 @@
 angular.module('postapp').controller('SearchController', SearchController);
 
-function SearchController ($scope, packageDataFactory, $location) {
+function SearchController ($scope, packageDataFactory, $location, AuthFactory) {
     var vm = this;
     $scope.pageClass = 'page-search';
     packageDataFactory.getAdmins(vm);
@@ -121,6 +121,18 @@ function SearchController ($scope, packageDataFactory, $location) {
 
     vm.editPackage = function (package) {
         $location.path('/edit/' + package.packageId);
+    };
+
+    vm.addNewPackage = function () {
+        $location.path('/newmail');
+    };
+
+    vm.isLoggedIn = function () {
+        if (AuthFactory.isLoggedIn) {
+            return true;
+        } else {
+            return false;
+        }
     };
 
 }

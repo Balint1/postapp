@@ -4,10 +4,11 @@
         <form ng-submit="vm.login()">
             <div><label for="username">Username: </label></div>
             <div>
-                <input type="text" id="username" ng-model="vm.username">
+                <input required type="text" id="username" ng-model="vm.username">
             </div>
             <div><label for="password">Password: </label></div>
-            <div><input type="password" id="password" ng-model="vm.password"></div>
+            <div><input required type="password" id="password" ng-model="vm.password"></div>
+            <div ng-if="vm.submitted" style="color: #ff0000; margin-bottom: 5px">Ivalid username/password combination</div>
             <div><button type="submit" class="btn btn-primary">Log In</button></div>
         </form>
     </div>
