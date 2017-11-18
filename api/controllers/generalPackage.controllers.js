@@ -52,6 +52,7 @@ if(!data.time)
 data.time = new Date();
 data.packageId = new Date().getTime();
 data.user = req.user;
+data.deleted = false;
 collection.insertOne(data, function(err,resp){
 if (err) 
 res.status(400);
@@ -99,7 +100,6 @@ module.exports.generalPutOne = function(req,res,type){
         res.status(400).send("nem tartalmazhat a body packageId-t!!");
         return;
     }
-    data.deleted = false;
     /*var wrongType = true;
     for(var i = 0 ; i < type.length;i++){
         if(type[i] == data.package_type)
