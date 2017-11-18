@@ -129,6 +129,14 @@ function PackageEditController ($scope, packageDataFactory, $location, $http, $r
                 });
             }
         }
+    };
+
+    vm.deletePackage = function () {
+        $http.delete('/api/mails/' + id).then(function (response) {
+            $location.path('/search');
+        }).catch(function (error) {
+            console.log(error);
+        })
     }
 
 }
