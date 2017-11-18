@@ -4,7 +4,7 @@
         <form name="vm.submitForm" ng-submit="vm.addPackage()">
             <div class="searchrowdiv">
                 <label for="new_package_type">Type: </label>
-                <select required name="new_package_type" id="new_package_type" ng-model="vm.new_package_type">
+                <select ng-required="true" name="new_package_type" id="new_package_type" ng-model="vm.new_package_type">
                     <option disabled selected value hidden></option>
                     <option value="mail">Mail</option>
                     <option value="packet">Packet</option>
@@ -18,23 +18,23 @@
                 <label for="newComment">Comment: </label>
                 <input type="text" id="newComment" ng-model="vm.comment">
                 <label for="subject">Subject: </label>
-                <input required type="text" id="subject" ng-model="vm.subject">
+                <input ng-required="true" type="text" id="subject" ng-model="vm.subject">
             </div>
             <div class="searchrowdiv">
                 <label for="address">Address: </label>
-                <input required type="text" id="address" placeholder="Address" ng-model="vm.adress">
-                <input required type="text" id="city" placeholder="City" ng-model="vm.city">
-                <input required type="number" id="zip" placeholder="Zip" ng-model="vm.zip">
+                <input ng-required="true" type="text" id="address" placeholder="Address" ng-model="vm.adress">
+                <input ng-required="true" type="text" id="city" placeholder="City" ng-model="vm.city">
+                <input ng-required="true" type="number" id="zip" placeholder="Zip" ng-model="vm.zip">
             </div>
             <div class="searchrowdiv">
                 <label for="division">Division: </label>
-                <select required name="division" id="division" ng-model="vm.division">
+                <select ng-required="true" name="division" id="division" ng-model="vm.division">
                     <option value=""></option>
                     <option value="RX">RX</option>
                     <option value="Dia">Dia</option>
                 </select>
                 <label for="admin">Admin:  </label>
-                <select required name="admin" id="admin" ng-model="vm.admin">
+                <select ng-required="true" name="admin" id="admin" ng-model="vm.admin">
                     <option value=""></option>
                     <option ng-repeat="admin in vm.admins" value="{{admin.name}}">{{admin.name}}</option>
                 </select>
@@ -42,9 +42,9 @@
             <div ng-show="vm.new_package_type == 'mail' || vm.new_package_type == 'packet' || vm.new_package_type == 'gazette'" class="fading">
                 <div class="searchrowdiv">
                     <label for="category">Category: </label>
-                    <input required type="text" id="category" ng-model="vm.category">
+                    <input ng-required="vm.new_package_type == 'mail' || vm.new_package_type == 'packet' || vm.new_package_type == 'gazette'" type="text" id="category" ng-model="vm.category">
                     <label for="delivery">Delivery:  </label>
-                    <select required name="delivery" id="delivery" ng-model="vm.delivery">
+                    <select ng-required="vm.new_package_type == 'mail' || vm.new_package_type == 'packet' || vm.new_package_type == 'gazette'" name="delivery" id="delivery" ng-model="vm.delivery">
                         <option disabled selected value hidden></option>
                         <option value="normal">Normal</option>
                         <option value="express">Express</option>
@@ -66,7 +66,7 @@
                 </div>
                 <div class="searchrowdiv">
                     <label for="sender">Sender: </label>
-                    <input required type="text" id="sender" ng-model="vm.sender">
+                    <input ng-required="vm.new_package_type == 'mail' || vm.new_package_type == 'packet' || vm.new_package_type == 'gazette'" type="text" id="sender" ng-model="vm.sender">
                 </div>
                 <div class="searchrowdiv searchbuttondiv">
                     <button type="submit" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true" style="margin-right: 5px;"></i>Add package</button>
@@ -75,15 +75,15 @@
             <div ng-show="vm.new_package_type == 'invoice'" class="fading">
                 <div class="searchrowdiv">
                     <label for="invoice_number">Invoice# : </label>
-                    <input required type="text" id="invoice_number" ng-model="vm.invoice_number">
+                    <input ng-required="vm.new_package_type == 'invoice'" type="text" id="invoice_number" ng-model="vm.invoice_number">
                     <label for="expiry">Expiry: </label>
-                    <input required type="number" id="expiry" ng-model="vm.expiry">
+                    <input ng-required="vm.new_package_type == 'invoice'" type="number" id="expiry" ng-model="vm.expiry">
                 </div>
                 <div class="searchrowdiv">
                     <label for="brutto">Brutto : </label>
-                    <input required type="number" id="brutto" ng-model="vm.brutto">
+                    <input ng-required="vm.new_package_type == 'invoice'" type="number" id="brutto" ng-model="vm.brutto">
                     <label for="netto">Netto: </label>
-                    <input required type="number" id="netto" ng-model="vm.netto">
+                    <input ng-required="vm.new_package_type == 'invoice'" type="number" id="netto" ng-model="vm.netto">
                 </div>
                 <div class="searchrowdiv searchbuttondiv">
                     <button type="submit" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true" style="margin-right: 5px;"></i>Add package</button>
