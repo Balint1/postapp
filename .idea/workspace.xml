@@ -49,7 +49,7 @@
       <file leaf-file-name="new-package.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/angular-app/new-package/new-package.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1190">
+            <state relative-caret-position="1088">
               <caret line="70" column="58" lean-forward="true" selection-start-line="70" selection-start-column="58" selection-end-line="70" selection-end-column="58" />
               <folding>
                 <element signature="n#style#0;n#i#0;n#button#0;n#div#4;n#div#4;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -62,7 +62,7 @@
       <file leaf-file-name="package-edit.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/angular-app/package-edit/package-edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
+            <state relative-caret-position="1462">
               <caret line="86" column="100" lean-forward="true" selection-start-line="86" selection-start-column="100" selection-end-line="86" selection-end-column="100" />
               <folding />
             </state>
@@ -72,8 +72,8 @@
       <file leaf-file-name="package-edit-controller.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/angular-app/package-edit/package-edit-controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="139" column="5" lean-forward="true" selection-start-line="139" selection-start-column="5" selection-end-line="139" selection-end-column="5" />
+            <state relative-caret-position="204">
+              <caret line="12" column="51" lean-forward="true" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -92,8 +92,8 @@
       <file leaf-file-name="new-package-controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/angular-app/new-package/new-package-controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1000">
-              <caret line="7" column="33" lean-forward="false" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+            <state relative-caret-position="187">
+              <caret line="11" column="54" lean-forward="true" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -102,8 +102,8 @@
       <file leaf-file-name="search-controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/angular-app/search/search-controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="547">
-              <caret line="127" column="6" lean-forward="false" selection-start-line="127" selection-start-column="6" selection-end-line="127" selection-end-column="6" />
+            <state relative-caret-position="-289">
+              <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -179,9 +179,9 @@
         <option value="$PROJECT_DIR$/public/angular-app/login/login-controller.js" />
         <option value="$PROJECT_DIR$/public/angular-app/login/login.html" />
         <option value="$PROJECT_DIR$/public/angular-app/new-package/new-package.html" />
-        <option value="$PROJECT_DIR$/public/angular-app/new-package/new-package-controller.js" />
         <option value="$PROJECT_DIR$/public/angular-app/package-edit/package-edit.html" />
         <option value="$PROJECT_DIR$/public/angular-app/package-edit/package-edit-controller.js" />
+        <option value="$PROJECT_DIR$/public/angular-app/new-package/new-package-controller.js" />
       </list>
     </option>
   </component>
@@ -425,11 +425,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124933000" />
+    <option name="totallyTimeSpent" value="125326000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18511905" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -438,7 +437,7 @@
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3293348" sideWeight="0.43333334" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3293348" sideWeight="0.43333334" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -728,7 +727,6 @@
         <state relative-caret-position="153">
           <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
           <folding>
-            <marker date="1511003226243" expanded="true" signature="160:1524" ph="{...}" />
             <marker date="1511003226243" expanded="true" signature="404:1212" ph="{...}" />
             <marker date="1511003226243" expanded="true" signature="446:1206" ph="{...}" />
             <marker date="1511003226243" expanded="true" signature="640:707" ph="{...}" />
@@ -776,29 +774,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/angular-app/new-package/new-package.html">
+    <entry file="file://$PROJECT_DIR$/public/angular-app/search/search-controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="70" column="58" lean-forward="true" selection-start-line="70" selection-start-column="58" selection-end-line="70" selection-end-column="58" />
-          <folding>
-            <element signature="n#style#0;n#i#0;n#button#0;n#div#4;n#div#4;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <marker date="1511006702289" expanded="false" signature="5838:5856" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/angular-app/package-edit/package-edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="86" column="100" lean-forward="true" selection-start-line="86" selection-start-column="100" selection-end-line="86" selection-end-column="100" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-153">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="-289">
+          <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -811,26 +790,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/angular-app/search/search-controller.js">
+    <entry file="file://$PROJECT_DIR$/api/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="127" column="6" lean-forward="false" selection-start-line="127" selection-start-column="6" selection-end-line="127" selection-end-column="6" />
+        <state relative-caret-position="-153">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/angular-app/new-package/new-package.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="70" column="58" lean-forward="true" selection-start-line="70" selection-start-column="58" selection-end-line="70" selection-end-column="58" />
+          <folding>
+            <element signature="n#style#0;n#i#0;n#button#0;n#div#4;n#div#4;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <marker date="1511006702289" expanded="false" signature="5838:5856" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/angular-app/new-package/new-package-controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1000">
-          <caret line="7" column="33" lean-forward="false" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+        <state relative-caret-position="187">
+          <caret line="11" column="54" lean-forward="true" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/angular-app/package-edit/package-edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1462">
+          <caret line="86" column="100" lean-forward="true" selection-start-line="86" selection-start-column="100" selection-end-line="86" selection-end-column="100" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/angular-app/package-edit/package-edit-controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="139" column="5" lean-forward="true" selection-start-line="139" selection-start-column="5" selection-end-line="139" selection-end-column="5" />
+        <state relative-caret-position="204">
+          <caret line="12" column="51" lean-forward="true" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
           <folding />
         </state>
       </provider>

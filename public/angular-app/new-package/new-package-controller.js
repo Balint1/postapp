@@ -8,8 +8,8 @@ function NewPackageController ($scope, mailDataFactory, invoiceDataFactory, $loc
     vm.addPackage = function () {
         var postData;
         var isoDate;
-        if (vm.time) {
-            isoDate = new Date(vm.time).toISOString();
+        if (vm.date) {
+            isoDate = new Date(vm.date).toISOString();
         }
 
         var adminId;
