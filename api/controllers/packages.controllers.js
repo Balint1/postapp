@@ -26,6 +26,7 @@ module.exports.getPackages = function(req,res){
     var collection = db.collection(COLL);
     //keresőJSON kiszedése
     var detailJSON = req.body;
+
     console.log(detailJSON);
     var fromDate = new Date(req.body.fromDate);
     var toDate = new Date(req.body.toDate);
@@ -55,6 +56,7 @@ module.exports.getPackages = function(req,res){
    
 
     detailJSON = reformatDeailJson(detailJSON);
+    detailJSON.deleted = false;
     console.log(detailJSON);
     //Összes talált package számának lekérdezése  a lapozáshoz
     var resp = {};

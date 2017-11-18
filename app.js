@@ -7,6 +7,7 @@ var path = require('path');
 var routes = require('./api/routes');
 app.set('port',3000);
 
+
 app.use( function(req,res,next){
     console.log(req.method,req.url);
     next();
@@ -25,5 +26,9 @@ app.use('/api',routes);
 
 var server = app.listen(app.get('port'), function(){
     var port = server.address().port;
-    console.log('Hosted on port ' + port);
+    console.log('HHosted on port ' + port);
+});
+
+process.on('exit',function(){
+    console.log('Bye...');
 });
