@@ -19,3 +19,6 @@ module.exports.invoicePostOne = function(req,res){
 module.exports.invoicePutOne = function(req,res){
     ctrlGeneral.generalPutOne(req,res,type);
 }
+module.exports.invoiceDeleteOne = function(req,res){
+    ctrlGeneral.generalDeleteOne(req,res,type);
+}

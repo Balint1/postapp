@@ -75,6 +75,7 @@ module.exports.getPackages = function(req,res){
     setTimeout(function(){
     collection.find(detailJSON).count(function (err, count) {
         console.log("összes package : " + count);
+        console.log(detailJSON);
         resp.itemCount = count;
         //console.log("Found packages",resp);
         res
@@ -125,9 +126,10 @@ function reformatDeailJson(detailJSON)
     conditions[i].package_comment = {$regex : ".*"+detailJSON.package_comment+".*"};
     i++;
    
-
-
-   var newJson = {$and : conditions};
+    
+    var newJson = {$and : conditions};
+   
+    
   
     
     return newJson;

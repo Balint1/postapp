@@ -21,7 +21,8 @@ router
 router
     .route('/mails/:packageId')
     .get(ctrlMails.mailsGetOne)
-    .put(ctrlUsers.authenticate,ctrlMails.mailsPutOne);
+    .put(ctrlUsers.authenticate,ctrlMails.mailsPutOne)
+    .delete(ctrlMails.mailDeleteOne);
 ////Invoices
 router
     .route('/invoices')
@@ -30,7 +31,8 @@ router
 router
     .route('/invoices/:packageId')
     .get(ctrlInvoices.invoicessGetOnee)
-    .put(ctrlUsers.authenticate,ctrlInvoices.invoicePutOne);
+    .put(ctrlUsers.authenticate,ctrlInvoices.invoicePutOne)
+    .delete(ctrlInvoices.invoiceDeleteOne);
 ////Admins
 router
     .route('/admins')

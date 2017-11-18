@@ -99,6 +99,7 @@ module.exports.generalPutOne = function(req,res,type){
         res.status(400).send("nem tartalmazhat a body packageId-t!!");
         return;
     }
+    data.deleted = false;
     /*var wrongType = true;
     for(var i = 0 ; i < type.length;i++){
         if(type[i] == data.package_type)
@@ -126,4 +127,25 @@ function typeJSON(type){
     }
     console.log(typeJson);
     return typeJson;
+}
+module.exports.generalDeleteOne = function(req,res,type){
+    var db = dbconn.get();
+    var packageId = parseInt(req.params.packageId);
+    var collection = db.collection('packages');
+    console.log("delete");
+    collection.findOne({packageId : packageId},function(err,package){
+        var wrongType = true;
+        for(var i = 0;i < type.length;i++){
+            if(type[i] == package.package_type)
+                wrongType = false;
+        }if(wrongType)
+            res.status(404).json("Wrong type");
+        else{
+            collection.updateOne({packageId : packageId},{$set : {deleted : true}});
+
+
+            res.status(200).json("deleted");
+        }
+        
+    });
 }

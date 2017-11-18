@@ -21,3 +21,6 @@ module.exports.mailsPostOne = function(req,res){
 module.exports.mailsPutOne = function(req,res){
     ctrlGeneral.generalPutOne(req,res,type);
 }
+module.exports.mailDeleteOne = function(req,res){
+    ctrlGeneral.generalDeleteOne(req,res,type);
+}
