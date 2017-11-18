@@ -104,7 +104,8 @@
                                 <span><strong>Weight:</strong>{{result.details.weight}}</span>
                                 <span><strong>Weight price:</strong>{{result.details.weight_price}}</span>
                                 <span><strong>Extra price:</strong>{{result.details.extra_price}}</span>
-                                <button ng-if="vm.isLoggedIn()" class="btn btn-success" ng-click="vm.editPackage(result)" style="float: right;">Edit</button>
+                                <button ng-if="vm.isLoggedIn()" class="btn btn-danger" ng-click="vm.deletePackage(result.packageId)" style="float: right; margin-right: 5px;">Delete</button>
+                                <button ng-if="vm.isLoggedIn()" class="btn btn-success" ng-click="vm.editPackage(result)" style="float: right; margin-right: 5px;">Edit</button>
                             </div>
                         </div>
                     </td>

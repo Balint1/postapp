@@ -1,6 +1,6 @@
 angular.module('postapp').controller('SearchController', SearchController);
 
-function SearchController ($scope, packageDataFactory, $location, AuthFactory) {
+function SearchController ($scope, packageDataFactory, $location, AuthFactory, $http) {
     var vm = this;
     $scope.pageClass = 'page-search';
     packageDataFactory.getAdmins(vm);
@@ -134,5 +134,13 @@ function SearchController ($scope, packageDataFactory, $location, AuthFactory) {
             return false;
         }
     };
+
+    vm.deletePackage = function (id) {
+        $http.delete('/api/mails/' + id).then(function (response) {
+            vm.getData(vm.currentPage);
+        }).catch(function (error) {
+            console.log(error);
+        })
+    }
 
 }
