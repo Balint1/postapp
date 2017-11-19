@@ -6,6 +6,7 @@ var ctrlInvoices = require('../controllers/invoices.controllers.js');
 var ctrlAdmins = require('../controllers/admins.controllers.js');
 var ctrlGeneral = require('../controllers/generalPackage.controllers');
 var ctrlUsers = require('../controllers/users.controllers');
+var ctrlUpload = require('../controllers/fileupload.controllers');
 ///Packages
 router
     .route('/packages')
@@ -22,7 +23,7 @@ router
     .route('/mails/:packageId')
     .get(ctrlMails.mailsGetOne)
     .put(ctrlUsers.authenticate,ctrlMails.mailsPutOne)
-    .delete(ctrlMails.mailDeleteOne);
+    .delete(ctrlUsers.authenticate,ctrlMails.mailDeleteOne);
 ////Invoices
 router
     .route('/invoices')
@@ -32,7 +33,7 @@ router
     .route('/invoices/:packageId')
     .get(ctrlInvoices.invoicessGetOnee)
     .put(ctrlUsers.authenticate,ctrlInvoices.invoicePutOne)
-    .delete(ctrlInvoices.invoiceDeleteOne);
+    .delete(ctrlUsers.authenticate,ctrlInvoices.invoiceDeleteOne);
 ////Admins
 router
     .route('/admins')
@@ -45,3 +46,8 @@ router
     router
     .route('/users/login')
     .post(ctrlUsers.login);
+//fileupload
+router
+    .route('/fileupload')
+    .get(ctrlUpload.uploadFileHTML)
+    .post(ctrlUpload.uploadFile);

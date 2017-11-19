@@ -49,7 +49,7 @@ if(wrongType){
     return;
 }
 if(!data.time)
-data.time = new Date();
+    data.time = new Date();
 data.packageId = new Date().getTime();
 data.user = req.user;
 data.deleted = false;

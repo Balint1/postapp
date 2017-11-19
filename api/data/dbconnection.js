@@ -1,5 +1,5 @@
 var MongoClient = require('mongodb').MongoClient;
-var dburl = 'mongodb://localhost:27017/postapp';
+var dburl = 'mongodb://node_user:traktor@ds113746.mlab.com:13746/heroku_f9j81818';
 var _connection = null;
 
 var open = function(){
@@ -8,9 +8,11 @@ var open = function(){
             console.log("DB connection failed");
             return;
         }
+        //db.authenticate('node_user','traktor');
         _connection = db;
         console.log("DB connection open");        
     });
+    
 };
 var get = function(){
     return _connection;

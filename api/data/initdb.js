@@ -11,7 +11,7 @@
 
 var packagesData = require('./packages.json');
 var MongoClient = require('mongodb').MongoClient;
-var dburl = 'mongodb://localhost:27017/postapp';
+var dburl =  'mongodb://node_user:traktor@ds113746.mlab.com:13746/heroku_f9j81818';
 var _connection = null;
 MongoClient.connect(dburl,function(err,db){
         if(err){
