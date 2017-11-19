@@ -5,7 +5,7 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var routes = require('./api/routes');
-app.set('port',process.env.port || 3000);
+app.set('port',process.env.PORT || 3000);
 
 
 app.use( function(req,res,next){
