@@ -118,6 +118,8 @@ function reformatDeailJson(detailJSON)
     conditions[i] = {};
     if(detailJSON.package_type)
     conditions[i].package_type = detailJSON.package_type;
+    if(detailJSON.packageId)
+    conditions[i].packageId = detailJSON.packageId;
     if(detailJSON.subject)
     conditions[i].subject =   {$regex : ".*"+detailJSON.subject+".*"} ;
     if(detailJSON.division)
