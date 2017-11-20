@@ -17,8 +17,8 @@
                 <li><a href="#">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li ng-class="vm.isActiveTab('search')"><a ng-href="#/search"><i class="fa fa-envelope" aria-hidden="true"></i> Mails</a></li>
-                <li ng-if="!vm.isLoggedIn()" ng-class="vm.isActiveTab('login')"><a ng-href="#/login"><i class="fa fa-sign-in" aria-hidden="true"></i>Log In</a></li>
+                <li ng-class="vm.isActiveTab('search')"><a ng-href="#!/search"><i class="fa fa-envelope" aria-hidden="true"></i> Mails</a></li>
+                <li ng-if="!vm.isLoggedIn()" ng-class="vm.isActiveTab('login')"><a ng-href="#!/login"><i class="fa fa-sign-in" aria-hidden="true"></i>Log In</a></li>
                 <li ng-if="vm.isLoggedIn()" ng-click="vm.logout()"><a ng-href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>Log out</a></li>
             </ul>
         </div>
