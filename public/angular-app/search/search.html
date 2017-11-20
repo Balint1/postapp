@@ -59,7 +59,7 @@
             </form>
         </div>
     </div>
-    <div class="container fading" ng-show="vm.searchResults.length > 0">
+    <div class="container" ng-show="vm.searchResults.length > 0">
         <table class="table table-bordered table-hover" id="printable">
             <thead>
                 <tr>
@@ -92,7 +92,8 @@
                                 <span><strong>Expiry:</strong>{{result.details.expiry}}</span>
                                 <span><strong>Brutto:</strong>{{result.details.brutto}}</span>
                                 <span><strong>Netto:</strong>{{result.details.netto}}</span>
-                                <button class="btn btn-success" ng-click="vm.editPackage(result)" style="float: right;">Edit</button>
+                                <button ng-if="vm.isLoggedIn()" class="btn btn-danger" ng-click="vm.deleteInvoice(result.packageId)" style="float: right; margin-right: 5px;">Delete</button>
+                                <button class="btn btn-success" ng-click="vm.editPackage(result)" style="float: right; margin-right: 5px;">Edit</button>
                             </div>
                         </div>
                         <div class="rowdiv" ng-show="result.package_type != 'invoice'">
@@ -104,7 +105,7 @@
                                 <span><strong>Weight:</strong>{{result.details.weight}}</span>
                                 <span><strong>Weight price:</strong>{{result.details.weight_price}}</span>
                                 <span><strong>Extra price:</strong>{{result.details.extra_price}}</span>
-                                <button ng-if="vm.isLoggedIn()" class="btn btn-danger" ng-click="vm.deletePackage(result.packageId)" style="float: right; margin-right: 5px;">Delete</button>
+                                <button ng-if="vm.isLoggedIn()" class="btn btn-danger" ng-click="vm.deleteMail(result.packageId)" style="float: right; margin-right: 5px;">Delete</button>
                                 <button ng-if="vm.isLoggedIn()" class="btn btn-success" ng-click="vm.editPackage(result)" style="float: right; margin-right: 5px;">Edit</button>
                             </div>
                         </div>

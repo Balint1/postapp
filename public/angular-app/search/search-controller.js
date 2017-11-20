@@ -135,8 +135,16 @@ function SearchController ($scope, packageDataFactory, $location, AuthFactory, $
         }
     };
 
-    vm.deletePackage = function (id) {
+    vm.deleteMail = function (id) {
         $http.delete('/api/mails/' + id).then(function (response) {
+            vm.getData(vm.currentPage);
+        }).catch(function (error) {
+            console.log(error);
+        })
+    };
+
+    vm.deleteInvoice = function (id) {
+        $http.delete('/api/invoices/' + id).then(function (response) {
             vm.getData(vm.currentPage);
         }).catch(function (error) {
             console.log(error);
