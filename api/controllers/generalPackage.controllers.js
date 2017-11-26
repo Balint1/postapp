@@ -1,5 +1,6 @@
 var dbconn = require('../data/dbconnection.js'); 
 
+
 module.exports.generalGetAll = function(req,res,type,PROPERTIES){
     var offset = 0;
     var count = 50;

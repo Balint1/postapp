@@ -53,6 +53,6 @@ router
     .post(ctrlUpload.uploadFile);
 
 //Download
-//router
-   // .route('/packages/search/download')
-    //.get(ctrlPackages.downloadPackages);
+router
+    .route('/packages/search/download')
+    .post(ctrlPackages.downloadPackages);

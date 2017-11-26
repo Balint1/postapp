@@ -2,6 +2,7 @@ var dbconn = require('../data/dbconnection.js');
 var bcrypt = require('bcrypt-nodejs');
 var jwt = require("jsonwebtoken");
 
+
 module.exports.register = function(req,res){
 
     var username = req.body.username;
@@ -91,3 +92,4 @@ if(headerExists){
 }
 }
 };
+

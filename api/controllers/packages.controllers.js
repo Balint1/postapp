@@ -1,6 +1,8 @@
 var dbconn = require('../data/dbconnection.js'); 
 var mongoose = require('mongoose');
 //var Package = require('Package');
+var jsonexport = require('jsonexport');
+var fs = require('fs'); 
 var PACKAGE_PROPERTIES = {_id : false,
                         packageId : true,
                         subject:true,
@@ -64,7 +66,7 @@ module.exports.getPackages = function(req,res){
         collection
         .find(detailJSON
         ,PACKAGE_PROPERTIES)
-        .sort({"packageId" : -1})
+        .sort({"time" : -1})
         .skip(offset)
         .limit(count)
         .toArray(function(err,docs){          
@@ -140,3 +142,64 @@ function reformatDeailJson(detailJSON)
     return newJson;
 
 }
+
+
+module.exports.downloadPackages = function(req,res){
+    
+        //adatbáziskapcsolat nyitása
+        var db = dbconn.get();
+        var collection = db.collection(COLL);
+        
+        var fromDate = new Date(req.body.fromDate);
+        var toDate = new Date(req.body.toDate);
+        //keresőJSON-ben time beállítása
+        var detailJSON = req.body;
+        console.log(detailJSON);
+        if(detailJSON.toDate && toDate == "Invalid Date")
+            res
+            .status(400)
+            .send("Rossz dátum formátum a toDate-nél");
+        
+        else if(detailJSON.fromDate && fromDate == "Invalid Date")
+            res
+            .status(400)
+            .send("Rossz dátum formátum a fromDate-nél");
+        if(detailJSON.toDate  && detailJSON.fromDate )
+            detailJSON.time = {
+                    $gte: new Date(req.body.fromDate),
+                    $lt: new Date(req.body.toDate)
+                };
+        else if(detailJSON.toDate  && !detailJSON.fromDate )
+                detailJSON.time = {
+                    $lt: new Date(req.body.toDate)
+                };
+            else if(detailJSON.fromDate )
+                    detailJSON.time = {
+                    $gte: new Date(req.body.fromDate)
+                };
+       
+    
+        detailJSON = reformatDeailJson(detailJSON);
+        detailJSON.deleted = false;
+     
+            collection
+            .find(detailJSON
+            ,PACKAGE_PROPERTIES)
+            .sort({"time" : -1})
+            .limit(500)
+            .toArray(function(err,docs){
+                jsonexport(docs,function(err, csv){
+                    if(err) return console.log(err);
+                    console.log(csv);
+                    
+                   
+                    res.setHeader('Content-disposition', 'attachment; filename=tablazat.csv');
+                    res.set('Content-Type', 'text/csv');
+                    res.status(200).send(csv);
+                    console.log("The file was saved!");
+                    }); 
+    
+                });
+    
+        
+    };
