@@ -9,6 +9,7 @@ function NewPackageController ($scope, mailDataFactory, invoiceDataFactory, $loc
         var postData;
         var isoDate;
         if (vm.date) {
+            vm.date.setHours(vm.date.getHours() + 1);
             isoDate = new Date(vm.date).toISOString();
         }
 
