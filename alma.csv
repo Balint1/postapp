@@ -1,0 +1,6 @@
+admin.name,adress.adress,adress.city,adress.zip,division,package_comment,package_type,subject,time,packageId,admin.id
+Jancsi,55,55,55,RX,gs,packet,gzu,2015-11-11T00:00:00.000Z,1511027944916
+Jancsi,11,11,11,RX,111,invoice,11,2017-11-18T00:00:00.000Z,1511026120926,1
+Jancsi,gjh,jgh,57,RX,vsd,mail,gjh,2017-11-18,1511025950972,
+Jancsi,gdsf,gdfs30,4,Dia,gsd,mail,gsd,2017-11-18,1511007001570,
+,,,,,,invoice,,2017-11-18,1511006375945,
