@@ -8,8 +8,9 @@ function PackageEditController ($scope, packageDataFactory, $location, $http, $r
 
     $http.get('/api/mails/' + id).then(function (response) {
         vm.editing = response.data;
-        var newDate = response.data.time.substring(0, 10);
-        vm.date = new Date(newDate);
+        var responseTime = new Date(response.data.time);
+        responseTime.setHours(responseTime.getHours() + 1);
+        vm.date = responseTime;
         vm.comment = response.data.package_comment;
         vm.subject = response.data.subject;
         vm.adress = response.data.adress.adress;
@@ -29,8 +30,9 @@ function PackageEditController ($scope, packageDataFactory, $location, $http, $r
     }).catch(function (error) {
         $http.get('/api/invoices/' + id).then(function (response) {
             vm.editing = response.data;
-            var newDate = response.data.time.substring(0, 10);
-            vm.date = new Date(newDate);
+            var responseTime = new Date(response.data.time);
+            responseTime.setHours(responseTime.getHours() + 1);
+            vm.date = responseTime;
             vm.comment = response.data.package_comment;
             vm.subject = response.data.subject;
             vm.adress = response.data.adress.adress;

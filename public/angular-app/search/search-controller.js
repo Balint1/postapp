@@ -20,7 +20,6 @@ function SearchController ($scope, packageDataFactory, $location, AuthFactory, $
         }
 
         vm.offset = (pageno - 1)*vm.itemsPerPage;
-        console.log(pageno);
         packageDataFactory.searchPackage(postData, vm, vm.offset);
     };
 
@@ -38,9 +37,11 @@ function SearchController ($scope, packageDataFactory, $location, AuthFactory, $
         var isoFromDate;
         var isoToDate;
         if (vm.fromDate) {
+            vm.fromDate.setHours(vm.fromDate.getHours() + 1);
             isoFromDate = new Date(vm.fromDate).toISOString();
         }
         if (vm.toDate) {
+            vm.toDate.setHours(vm.toDate.getHours() + 1);
             isoToDate = new Date(vm.toDate).toISOString();
         }
 
