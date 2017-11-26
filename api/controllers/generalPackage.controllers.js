@@ -50,6 +50,8 @@ if(wrongType){
 }
 if(!data.time)
     data.time = new Date();
+else    
+    data.time = new Date(data.time);
 data.packageId = new Date().getTime();
 data.user = req.user;
 data.deleted = false;
