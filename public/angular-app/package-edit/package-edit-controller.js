@@ -10,7 +10,7 @@ function PackageEditController ($scope, packageDataFactory, $location, $http, $r
         vm.editing = response.data;
         var responseTime = new Date(response.data.time);
         responseTime.setHours(responseTime.getHours() + 1);
-        vm.date = responseTime;
+        vm.date = new Date(moment(responseTime).format());
         vm.comment = response.data.package_comment;
         vm.subject = response.data.subject;
         vm.adress = response.data.adress.adress;
@@ -32,7 +32,7 @@ function PackageEditController ($scope, packageDataFactory, $location, $http, $r
             vm.editing = response.data;
             var responseTime = new Date(response.data.time);
             responseTime.setHours(responseTime.getHours() + 1);
-            vm.date = responseTime;
+            vm.date = new Date(moment(responseTime).format());
             vm.comment = response.data.package_comment;
             vm.subject = response.data.subject;
             vm.adress = response.data.adress.adress;

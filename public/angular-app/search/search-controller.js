@@ -38,11 +38,13 @@ function SearchController ($scope, packageDataFactory, $location, AuthFactory, $
         var isoToDate;
         if (vm.fromDate) {
             vm.fromDate.setHours(vm.fromDate.getHours() + 1);
-            isoFromDate = new Date(vm.fromDate).toISOString();
+            isoFromDate = moment(vm.fromDate);
+            isoFromDate.format();
         }
         if (vm.toDate) {
             vm.toDate.setHours(vm.toDate.getHours() + 1);
-            isoToDate = new Date(vm.toDate).toISOString();
+            isoToDate = moment(vm.toDate);
+            isoToDate.format();
         }
 
         postData = {
