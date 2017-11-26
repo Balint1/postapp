@@ -104,6 +104,9 @@ module.exports.generalPutOne = function(req,res,type){
         res.status(400).send("nem tartalmazhat a body packageId-t!!");
         return;
     }
+    if(data.time){
+        data.time = new Date(data.time);
+    }
     /*var wrongType = true;
     for(var i = 0 ; i < type.length;i++){
         if(type[i] == data.package_type)
