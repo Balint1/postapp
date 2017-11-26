@@ -51,3 +51,8 @@ router
     .route('/fileupload')
     .get(ctrlUpload.uploadFileHTML)
     .post(ctrlUpload.uploadFile);
+
+//Download
+//router
+   // .route('/packages/search/download')
+    //.get(ctrlPackages.downloadPackages);

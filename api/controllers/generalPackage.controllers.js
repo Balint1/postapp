@@ -98,6 +98,7 @@ module.exports.generalPutOne = function(req,res,type){
     var collection = db.collection('packages');
     var data = req.body;
     console.log(req.params);
+    console.log(req.body);
     if(data.packageId){
         res.status(400).send("nem tartalmazhat a body packageId-t!!");
         return;
