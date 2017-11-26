@@ -73,7 +73,11 @@ if(req.headers.kiskapu && req.headers.kiskapu == "alma")
     next();
 else{ 
 if(headerExists){
-    var token = req.headers.authorization.split(' ')[1];
+    var token;
+    if(req.headers.kiskapu){
+        token = req.headers.kiskapu.split(' ')[1];
+    }else
+    token = req.headers.authorization.split(' ')[1];
     jwt.verify(token,'s3cr3t',function(error,decoded){
         if(error){
             res.status(401).json('Unauthorized');
