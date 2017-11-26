@@ -23,6 +23,9 @@ module.exports.getPackages = function(req,res){
     if(req.query && req.query.count){
         count = parseInt(req.query.count,10);
     }
+    var order = sorting(req);
+    
+    console.log(order);
     //adatbáziskapcsolat nyitása
     var db = dbconn.get();
     var collection = db.collection(COLL);
@@ -66,7 +69,7 @@ module.exports.getPackages = function(req,res){
         collection
         .find(detailJSON
         ,PACKAGE_PROPERTIES)
-        .sort({"time" : -1})
+        .sort(order)
         .skip(offset)
         .limit(count)
         .toArray(function(err,docs){          
@@ -85,6 +88,26 @@ module.exports.getPackages = function(req,res){
         .json(resp);
       });
     },200);
+}
+
+function sorting(req){
+    var sort = "time";
+    var asc = -1;
+    if(req.query && req.query.sort){
+        sort = req.query.sort;
+        if(req.query.asc){
+            if( parseInt(req.query.asc) > 0)
+                asc = 1;
+            else
+                asc = -1;
+        }
+    }
+    var order = {};
+    if(sort == "packageId")
+        order.packageId = asc;
+    if(sort == "time")
+        order.time = asc;
+    return order;
 }
 
 function reformatDeailJson(detailJSON)
@@ -152,6 +175,7 @@ module.exports.downloadPackages = function(req,res){
         
         var fromDate = new Date(req.body.fromDate);
         var toDate = new Date(req.body.toDate);
+        var order = sorting(req);
         //keresőJSON-ben time beállítása
         var detailJSON = req.body;
         console.log(detailJSON);
@@ -185,7 +209,7 @@ module.exports.downloadPackages = function(req,res){
             collection
             .find(detailJSON
             ,PACKAGE_PROPERTIES)
-            .sort({"time" : -1})
+            .sort(order)
             .limit(500)
             .toArray(function(err,docs){
                 jsonexport(docs,function(err, csv){
