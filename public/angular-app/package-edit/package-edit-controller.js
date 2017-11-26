@@ -30,7 +30,7 @@ function PackageEditController ($scope, packageDataFactory, $location, $http, $r
         $http.get('/api/invoices/' + id).then(function (response) {
             vm.editing = response.data;
             var newDate = response.data.time.substring(0, 10);
-            vm.date = newDate;
+            vm.date = new Date(newDate);
             vm.comment = response.data.package_comment;
             vm.subject = response.data.subject;
             vm.adress = response.data.adress.adress;
