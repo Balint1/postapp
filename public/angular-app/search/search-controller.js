@@ -152,6 +152,26 @@ function SearchController ($scope, packageDataFactory, $location, AuthFactory, $
         }).catch(function (error) {
             console.log(error);
         })
+    };
+
+    vm.download = function () {
+        $http.post('/api/packages/search/download', postData).then(function (response) {
+            if (window.navigator.msSaveOrOpenBlob) {
+                var blob = new Blob([decodeURIComponent(encodeURI(response.data))], {
+                    type: "text/csv;charset=utf-8;"
+                });
+                navigator.msSaveBlob(blob, 'tablazat.csv');
+            } else {
+                var a = document.createElement('a');
+                a.href = 'data:attachment/csv;charset=utf-8,' + encodeURI(response.data);
+                a.target = '_blank';
+                a.download = 'tablazat.csv';
+                document.body.appendChild(a);
+                a.click();
+            }
+        }).catch(function (error) {
+            console.log(error);
+        })
     }
 
 }
