@@ -141,6 +141,10 @@ module.exports.generalDeleteOne = function(req,res,type){
     var collection = db.collection('packages');
     console.log("delete");
     collection.findOne({packageId : packageId},function(err,package){
+        if(package == null){
+            res.status(404).json("Package doesnt exist");
+            return;
+        }
         var wrongType = true;
         for(var i = 0;i < type.length;i++){
             if(type[i] == package.package_type)
