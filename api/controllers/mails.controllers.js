@@ -1,5 +1,4 @@
 var dbconn = require('../data/dbconnection.js'); 
-var mailData = require('../data/mails.json');
 var ctrlGeneral = require('./generalPackage.controllers.js');
 //Mail tulajdonságok beállítása
 var MAIL_PROPERTIES = {
