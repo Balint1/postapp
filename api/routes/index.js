@@ -6,7 +6,6 @@ var ctrlInvoices = require('../controllers/invoices.controllers.js');
 var ctrlAdmins = require('../controllers/admins.controllers.js');
 var ctrlGeneral = require('../controllers/generalPackage.controllers');
 var ctrlUsers = require('../controllers/users.controllers');
-var ctrlUpload = require('../controllers/fileupload.controllers');
 ///Packages
 router
     .route('/packages')
@@ -46,12 +45,6 @@ router
     router
     .route('/users/login')
     .post(ctrlUsers.login);
-//fileupload
-router
-    .route('/fileupload')
-    .get(ctrlUpload.uploadFileHTML)
-    .post(ctrlUpload.uploadFile);
-
 //Download
 router
     .route('/packages/search/download')

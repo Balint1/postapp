@@ -1,8 +1,6 @@
 var dbconn = require('../data/dbconnection.js'); 
-var mongoose = require('mongoose');
-//var Package = require('Package');
 var jsonexport = require('jsonexport');
-var fs = require('fs'); 
+//Tulajdonságok beállítása
 var PACKAGE_PROPERTIES = {_id : false,
                         packageId : true,
                         subject:true,
@@ -23,6 +21,7 @@ module.exports.getPackages = function(req,res){
     if(req.query && req.query.count){
         count = parseInt(req.query.count,10);
     }
+    //rendező JSON összeállítása
     var order = sorting(req);
     
     console.log(order);
@@ -59,13 +58,13 @@ module.exports.getPackages = function(req,res){
                 $gte: new Date(req.body.fromDate)
             };
    
-
+    //kereső JSON összerakása
     detailJSON = reformatDeailJson(detailJSON);
     detailJSON.deleted = false;
     console.log(detailJSON);
     //Összes talált package számának lekérdezése  a lapozáshoz
     var resp = {};
- 
+        //adatok a respons content-jébe
         collection
         .find(detailJSON
         ,PACKAGE_PROPERTIES)
@@ -78,21 +77,22 @@ module.exports.getPackages = function(req,res){
 
     
     setTimeout(function(){
+    //Adatok számának rekérdezése és berakása a resp-be
     collection.find(detailJSON).count(function (err, count) {
         console.log("összes package : " + count);
         console.log(detailJSON);
         resp.itemCount = count;
-        //console.log("Found packages",resp);
         res
         .status(200)
         .json(resp);
       });
     },200);
 }
-
+//querry paraméterből rendezés
 function sorting(req){
     var sort = "time";
     var asc = -1;
+    //mi szerint és milyen irányba rendezzen
     if(req.query && req.query.sort){
         sort = req.query.sort;
         if(req.query.asc){
@@ -112,6 +112,7 @@ function sorting(req){
 
 function reformatDeailJson(detailJSON)
 {
+    //feltételek szerint a keresőJSON összeállítása
     var conditions = [];
     var i = 0;
     if(detailJSON.adress && detailJSON.adress.adress){
@@ -153,17 +154,8 @@ function reformatDeailJson(detailJSON)
     conditions[i].package_comment = {$regex : ".*"+detailJSON.package_comment+".*"};
     if(detailJSON.time)
     conditions[i].time = detailJSON.time;
-   
-    i++;
-   
-    
     var newJson = {$and : conditions};
-   
-    
-  
-    
     return newJson;
-
 }
 
 

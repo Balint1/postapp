@@ -9,6 +9,7 @@ var COLL = "admins";
 module.exports.getAdmins = function(req,res){
     var db = dbconn.get();
     var collection = db.collection(COLL);
+    //adminok lekérdezése az adatbázisból
     collection
         .find({},ADMIN_PROPERTIES)
         .toArray(function(err,docs){

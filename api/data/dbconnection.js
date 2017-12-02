@@ -8,7 +8,6 @@ var open = function(){
             console.log("DB connection failed");
             return;
         }
-        //db.authenticate('node_user','traktor');
         _connection = db;
         console.log("DB connection open");        
     });

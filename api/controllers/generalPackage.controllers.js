@@ -107,15 +107,6 @@ module.exports.generalPutOne = function(req,res,type){
     if(data.time){
         data.time = new Date(data.time);
     }
-    /*var wrongType = true;
-    for(var i = 0 ; i < type.length;i++){
-        if(type[i] == data.package_type)
-        wrongType = false;
-    }
-    if(wrongType){
-        res.status(400).send("Rossz típus! " + data.package_type)
-        return;
-    }*/
     var query = {'packageId' : packageId};
     console.log(query);
     collection.updateOne(query,{$set: data}, function(err,resp){
