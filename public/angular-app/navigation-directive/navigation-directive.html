@@ -14,7 +14,7 @@
             <ul class="nav navbar-nav">
                 <li ng-class="vm.isActiveTab('')" class="active"><a href="#">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li ng-class="vm.isActiveTab('contact')"><a href="#!/contact">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li ng-class="vm.isActiveTab('search')"><a ng-href="#!/search"><i class="fa fa-envelope" aria-hidden="true"></i> Mails</a></li>

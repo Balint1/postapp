@@ -55,6 +55,14 @@ function config($httpProvider, $routeProvider) {
                 restricted: false
             }
         })
+        .when('/contact', {
+            templateUrl: 'angular-app/contact/contact.html',
+            controller: ContactController,
+            controllerAs: 'vm',
+            access: {
+                restricted: false
+            }
+        })
         .otherwise({
             redirectTo: '/'
         });

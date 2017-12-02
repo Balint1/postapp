@@ -286,6 +286,21 @@ label[for=arrive_date] {
     margin-top: 120px;
 }
 
+.jumbotron.contact {
+    padding-left: 20px;
+    padding-top: 30px;
+    width: 60%;
+    margin: auto;
+    padding-bottom: 15px;
+    margin-top: 120px;
+    color: darkslategrey;
+}
+
+#backend, #frontend {
+    padding-left: 50px;
+    font-size: 120%;
+}
+
 label[for=username], label[for=password], label[for=rpassword] {
     margin-left: 0px;
     margin-bottom: 10px;
@@ -380,7 +395,7 @@ strong {
     margin-right: 5px;
 }
 
-.page-package-edit.ng-enter, .page-login.ng-enter, .page-new-package.ng-enter, .page-search.ng-enter, .page-register.ng-enter 		{
+.page-package-edit.ng-enter, .page-login.ng-enter, .page-new-package.ng-enter, .page-search.ng-enter, .page-register.ng-enter, .page-contact.ng-enter		{
     -webkit-animation:slideInRight 0.5s both ease-in;
     -moz-animation:slideInRight 0.5s both ease-in;
     animation:slideInRight 0.5s both ease-in;
