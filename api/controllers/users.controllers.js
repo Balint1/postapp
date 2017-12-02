@@ -31,7 +31,7 @@ module.exports.register = function(req,res){
                         res.status(400).json(err);
                     }else{
                         
-                       console.log('user created ',user);
+                       console.log('user created ',username);
                        var token = jwt.sign({ username: user.username},'s3cr3t',{expiresIn : 3600});
                        users.update({username : username},{$inc : {logCount : 1}});
                
