@@ -235,6 +235,11 @@ label[for=count] {
     padding-right: 5px;
 }
 
+.fa-user-plus {
+    font-size: 14px;
+    padding-right: 5px;
+}
+
 #sender {
     width: 150px;
     margin-right: 30px;
@@ -281,7 +286,7 @@ label[for=arrive_date] {
     margin-top: 120px;
 }
 
-label[for=username], label[for=password] {
+label[for=username], label[for=password], label[for=rpassword] {
     margin-left: 0px;
     margin-bottom: 10px;
 }
@@ -375,7 +380,7 @@ strong {
     margin-right: 5px;
 }
 
-.page-package-edit.ng-enter, .page-login.ng-enter, .page-new-package.ng-enter, .page-search.ng-enter 		{
+.page-package-edit.ng-enter, .page-login.ng-enter, .page-new-package.ng-enter, .page-search.ng-enter, .page-register.ng-enter 		{
     -webkit-animation:slideInRight 0.5s both ease-in;
     -moz-animation:slideInRight 0.5s both ease-in;
     animation:slideInRight 0.5s both ease-in;

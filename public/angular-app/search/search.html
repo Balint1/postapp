@@ -94,7 +94,7 @@
                                 <span><strong>Brutto:</strong>{{result.details.brutto}}</span>
                                 <span><strong>Netto:</strong>{{result.details.netto}}</span>
                                 <button ng-if="vm.isLoggedIn()" class="btn btn-danger" ng-click="vm.deleteInvoice(result.packageId)" style="float: right; margin-right: 5px;">Delete</button>
-                                <button class="btn btn-success" ng-click="vm.editPackage(result)" style="float: right; margin-right: 5px;">Edit</button>
+                                <button class="btn btn-success" ng-if="vm.isLoggedIn()" ng-click="vm.editPackage(result)" style="float: right; margin-right: 5px;">Edit</button>
                             </div>
                         </div>
                         <div class="rowdiv" ng-show="result.package_type != 'invoice'">

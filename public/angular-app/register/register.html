@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="jumbotron accountform">
+        <h1 id="searchtext">Sign Up</h1>
+        <form ng-submit="vm.signUp()">
+            <div><label for="username">Username: </label></div>
+            <div>
+                <input required type="text" id="username" ng-model="vm.username">
+            </div>
+            <div><label for="password">Password: </label></div>
+            <div><input required type="password" id="password" ng-model="vm.password"></div>
+            <div><label for="rpassword">Repeat Password: </label></div>
+            <div><input required type="password" id="rpassword" ng-model="vm.rpassword"></div>
+            <div ng-if="vm.registered" style="color: #00ff00; margin-bottom: 5px">Succesful Registration</div>
+            <div ng-if="vm.failed" style="color: #ff0000; margin-bottom: 5px">{{vm.error}}</div>
+            <div><button type="submit" class="btn btn-primary">Sign Up</button></div>
+        </form>
+    </div>
+</div>
