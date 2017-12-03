@@ -1,6 +1,8 @@
 ﻿Posta alkalmazás
 
+A postapp egy csomagok és számlák ikatatására szolgáló program, mely lehetőséget nyújt a csomagok módosítására, valamint listázására és exportálására.
+
 Készítők: Bartha Bálint, Tajti Balázs, Szilágyi Ádám
 
-Haladási napló:
-https://docs.google.com/spreadsheets/d/1udOZqhqXaIr-fkEZ8n594km-7NoDQoWgNPMX0uofNkM/edit?usp=drive_web
+Felhasználói dokumentáció:
+https://docs.google.com/document/d/1wwJvVMWFJJSSLjXK5sJ6sA7zbn-E4IF6Ic-avNfFs3c/edit
